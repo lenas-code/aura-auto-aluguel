@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Users, Fuel, Cog } from "lucide-react";
-import type { Car } from "@/data/cars";
+import { tierLabel, type Car } from "@/data/cars";
 import { formatBRL } from "@/lib/pricing";
 
 export function CarCard({ car }: { car: Car }) {
@@ -18,11 +18,14 @@ export function CarCard({ car }: { car: Car }) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <span className="absolute left-3 top-3 rounded-sm bg-wood/85 px-2 py-1 text-xs font-semibold uppercase tracking-widest text-wood-foreground">
-          {car.category}
+          {tierLabel(car.tier)}
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
-        <h3 className="text-2xl font-semibold">{car.name}</h3>
+        <div>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground">{car.category}</p>
+          <h3 className="text-2xl font-semibold">{car.name}</h3>
+        </div>
         <p className="text-sm text-muted-foreground">{car.tagline}</p>
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
           <span className="inline-flex items-center gap-1"><Users className="size-4" /> {car.seats} lugares</span>

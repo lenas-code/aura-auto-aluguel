@@ -1,24 +1,46 @@
-import picape1 from "@/assets/cars/picape-1.jpg";
-import picape2 from "@/assets/cars/picape-2.jpg";
-import picape3 from "@/assets/cars/picape-3.jpg";
-import jipe1 from "@/assets/cars/jipe-1.jpg";
-import jipe2 from "@/assets/cars/jipe-2.jpg";
-import jipe3 from "@/assets/cars/jipe-3.jpg";
-import suv1 from "@/assets/cars/suv-1.jpg";
-import suv2 from "@/assets/cars/suv-2.jpg";
-import suv3 from "@/assets/cars/suv-3.jpg";
-import seda1 from "@/assets/cars/seda-1.jpg";
-import seda2 from "@/assets/cars/seda-2.jpg";
-import seda3 from "@/assets/cars/seda-3.jpg";
-import hatch1 from "@/assets/cars/hatch-1.jpg";
-import hatch2 from "@/assets/cars/hatch-2.jpg";
-import hatch3 from "@/assets/cars/hatch-3.jpg";
+import mobi1 from "@/assets/fleet/mobi-1.jpg.asset.json";
+import mobi2 from "@/assets/fleet/mobi-2.jpg.asset.json";
+import mobi3 from "@/assets/fleet/mobi-3.jpg.asset.json";
+import kwid1 from "@/assets/fleet/kwid-1.jpg.asset.json";
+import kwid2 from "@/assets/fleet/kwid-2.jpg.asset.json";
+import kwid3 from "@/assets/fleet/kwid-3.jpg.asset.json";
+import onix1 from "@/assets/fleet/onix-1.jpg.asset.json";
+import onix2 from "@/assets/fleet/onix-2.jpg.asset.json";
+import onix3 from "@/assets/fleet/onix-3.jpg.asset.json";
+import tcross1 from "@/assets/fleet/tcross-1.jpg.asset.json";
+import tcross2 from "@/assets/fleet/tcross-2.jpg.asset.json";
+import tcross3 from "@/assets/fleet/tcross-3.jpg.asset.json";
+import corolla1 from "@/assets/fleet/corolla-1.jpg.asset.json";
+import corolla2 from "@/assets/fleet/corolla-2.jpg.asset.json";
+import corolla3 from "@/assets/fleet/corolla-3.jpg.asset.json";
+import compass1 from "@/assets/fleet/compass-1.jpg.asset.json";
+import compass2 from "@/assets/fleet/compass-2.jpg.asset.json";
+import compass3 from "@/assets/fleet/compass-3.jpg.asset.json";
+import camaro1 from "@/assets/fleet/camaro-1.jpg.asset.json";
+import camaro2 from "@/assets/fleet/camaro-2.jpg.asset.json";
+import camaro3 from "@/assets/fleet/camaro-3.jpg.asset.json";
+import mustang1 from "@/assets/fleet/mustang-1.jpg.asset.json";
+import mustang2 from "@/assets/fleet/mustang-2.jpg.asset.json";
+import mustang3 from "@/assets/fleet/mustang-3.jpg.asset.json";
+import porsche1 from "@/assets/fleet/porsche-1.jpg.asset.json";
+import porsche2 from "@/assets/fleet/porsche-2.jpg.asset.json";
+import porsche3 from "@/assets/fleet/porsche-3.jpg.asset.json";
 
-export type CarPhoto = { src: string; alt: string };
+export type PhotoCredit = { author: string; license: string; url: string };
+export type CarPhoto = { src: string; alt: string; credit: PhotoCredit };
+
+export type CarTier = "economico" | "intermediario" | "esportivo";
+
+export const tiers: { id: CarTier; label: string; description: string }[] = [
+  { id: "economico", label: "Econômicos", description: "Diária baixa e pouco gasto com combustível." },
+  { id: "intermediario", label: "Intermediários", description: "Mais espaço e conforto para viajar." },
+  { id: "esportivo", label: "Esportivos", description: "Potência e emoção para ocasiões especiais." },
+];
 
 export type Car = {
   id: string;
   name: string;
+  tier: CarTier;
   category: string;
   tagline: string;
   description: string;
@@ -32,97 +54,182 @@ export type Car = {
 
 export const cars: Car[] = [
   {
-    id: "picape-serra-4x4",
-    name: "Picape Serra 4x4",
-    category: "Picape",
-    tagline: "Força para estrada de terra e caçamba para a bagagem toda.",
+    id: "fiat-mobi",
+    name: "Fiat Mobi Trekking",
+    tier: "economico",
+    category: "Hatch compacto",
+    tagline: "Pequeno por fora, esperto na cidade e econômico no posto.",
     description:
-      "Cabine dupla, tração 4x4 e bancos de couro. Ideal para fazenda, pescaria e viagens em que o asfalto acaba no meio do caminho.",
-    dailyPriceCents: 38900,
+      "Fácil de estacionar e muito econômico. Ótimo para resolver a vida na cidade ou fazer viagens curtas gastando pouco.",
+    dailyPriceCents: 11900,
     seats: 5,
-    transmission: "Automático",
-    fuel: "Diesel",
-    features: ["Tração 4x4", "Caçamba com capota", "Bancos de couro", "Ar-condicionado"],
+    transmission: "Manual",
+    fuel: "Flex",
+    features: ["Ar-condicionado", "Direção elétrica", "Central multimídia", "Rack de teto"],
     photos: [
-      { src: picape1, alt: "Picape Serra 4x4 verde em estrada de terra ao pôr do sol" },
-      { src: picape2, alt: "Interior da Picape Serra com bancos de couro marrom" },
-      { src: picape3, alt: "Traseira da Picape Serra ao lado de um celeiro de madeira" },
+      { src: mobi1.url, alt: "Fiat Mobi vermelho, vista de frente", credit: { author: "NaBUru38", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_Trekking_1.0_2021_in_Montevideo_(front).jpg" } },
+      { src: mobi2.url, alt: "Fiat Mobi vermelho, vista de trás", credit: { author: "NaBUru38", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_Trekking_1.0_2021_in_Montevideo_(back).jpg" } },
+      { src: mobi3.url, alt: "Fiat Mobi vermelho, outro ângulo", credit: { author: "RL GNZLZ", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_1.0_Like_2021.jpg" } },
     ],
   },
   {
-    id: "jipe-trilheiro",
-    name: "Jipe Trilheiro",
-    category: "Off-road",
-    tagline: "Capota aberta, lama no pneu e vento no rosto.",
+    id: "renault-kwid",
+    name: "Renault Kwid",
+    tier: "economico",
+    category: "Hatch compacto",
+    tagline: "Visual de aventureiro e diária que cabe no bolso.",
     description:
-      "Clássico, robusto e simples de dirigir em trilha. Para quem quer chegar onde o mapa não mostra.",
+      "Mais alto que os compactos comuns, encara bem rua de paralelepípedo e estradinha de terra sem gastar muito combustível.",
+    dailyPriceCents: 12900,
+    seats: 5,
+    transmission: "Manual",
+    fuel: "Flex",
+    features: ["Ar-condicionado", "Altura elevada do solo", "Central multimídia", "Câmera de ré"],
+    photos: [
+      { src: kwid1.url, alt: "Renault Kwid, vista de frente", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2023_Renault_Kwid_Iconic_(Colombia)_front_view_02.png" } },
+      { src: kwid2.url, alt: "Renault Kwid, vista de trás", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2023_Renault_Kwid_Iconic_(Colombia)_rear_view.png" } },
+      { src: kwid3.url, alt: "Renault Kwid, outro ângulo", credit: { author: "BugWarp", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Empalme_San_Carlos_Wikimania_2022-_BugWarp_29.jpg" } },
+    ],
+  },
+  {
+    id: "chevrolet-onix-plus",
+    name: "Chevrolet Onix Plus",
+    tier: "economico",
+    category: "Sedã compacto",
+    tagline: "Porta-malas grande e câmbio automático pelo preço de um popular.",
+    description:
+      "O sedã mais vendido do Brasil: confortável, econômico com motor turbo e com espaço de sobra para a bagagem da família.",
+    dailyPriceCents: 15900,
+    seats: 5,
+    transmission: "Automático",
+    fuel: "Flex",
+    features: ["Motor 1.0 turbo", "Porta-malas de 470 litros", "Wi-Fi a bordo", "Ar-condicionado"],
+    photos: [
+      { src: onix1.url, alt: "Chevrolet Onix Plus, vista de frente", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2021_Chevrolet_Onix_Sedan_1.0_Premier_Turbo_(Colombia)_front_view.png" } },
+      { src: onix2.url, alt: "Chevrolet Onix Plus, vista de trás", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2021_Chevrolet_Onix_Sedan_1.0_Premier_Turbo_(Colombia)_rear_view.png" } },
+      { src: onix3.url, alt: "Chevrolet Onix Plus, outro ângulo", credit: { author: "Jengtingchen", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Chevrolet_Onix_010.jpg" } },
+    ],
+  },
+  {
+    id: "volkswagen-t-cross",
+    name: "Volkswagen T-Cross",
+    tier: "intermediario",
+    category: "SUV compacto",
+    tagline: "Posição alta de dirigir e conforto para a estrada.",
+    description:
+      "SUV compacto com motor turbo, câmbio automático e bom espaço interno. Equilíbrio certo entre cidade e viagem.",
+    dailyPriceCents: 22900,
+    seats: 5,
+    transmission: "Automático",
+    fuel: "Flex",
+    features: ["Motor 200 TSI turbo", "Painel digital", "Piloto automático", "Sensor de estacionamento"],
+    photos: [
+      { src: tcross1.url, alt: "Volkswagen T-Cross branco, vista de frente", credit: { author: "Calreyn88", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_TDi.jpg" } },
+      { src: tcross2.url, alt: "Volkswagen T-Cross branco, vista de trás", credit: { author: "Calreyn88", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_TDi_4.jpg" } },
+      { src: tcross3.url, alt: "Interior do Volkswagen T-Cross", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Interior.jpg" } },
+    ],
+  },
+  {
+    id: "toyota-corolla",
+    name: "Toyota Corolla",
+    tier: "intermediario",
+    category: "Sedã médio",
+    tagline: "Silencioso, macio e confiável para quilômetros de estrada.",
+    description:
+      "Referência em conforto e durabilidade. Ideal para viagens longas, reuniões de trabalho ou para quem quer rodar tranquilo.",
+    dailyPriceCents: 25900,
+    seats: 5,
+    transmission: "Automático",
+    fuel: "Flex",
+    features: ["Motor 2.0", "Bancos em couro", "Controle de cruzeiro adaptativo", "Ar digital"],
+    photos: [
+      { src: corolla1.url, alt: "Toyota Corolla prata, vista de frente", credit: { author: "LuvsMG481", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Altis_petrol_version_front.jpg" } },
+      { src: corolla2.url, alt: "Toyota Corolla prata, vista de trás", credit: { author: "LuvsMG481", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Altis_petrol_version_rear.jpg" } },
+      { src: corolla3.url, alt: "Toyota Corolla prata, outro ângulo", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Hybrid_SEG_(Colombia)_front_view.png" } },
+    ],
+  },
+  {
+    id: "jeep-compass",
+    name: "Jeep Compass",
+    tier: "intermediario",
+    category: "SUV médio",
+    tagline: "Robustez de Jeep com acabamento caprichado.",
+    description:
+      "SUV médio espaçoso, firme em qualquer piso e cheio de tecnologia. Perfeito para a família descer para a serra ou para o litoral.",
     dailyPriceCents: 29900,
+    seats: 5,
+    transmission: "Automático",
+    fuel: "Flex",
+    features: ["Motor 1.3 turbo", "Teto solar", "Central multimídia de 10 polegadas", "Assistente de faixa"],
+    photos: [
+      { src: compass1.url, alt: "Jeep Compass prata, vista de frente", credit: { author: "Alexander Migl", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Jeep_Compass_(MP)_PHEV_Facelift_1X7A0140.jpg" } },
+      { src: compass2.url, alt: "Jeep Compass prata, vista de trás", credit: { author: "Alexander Migl", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Jeep_Compass_(MP)_PHEV_Facelift_1X7A0139.jpg" } },
+      { src: compass3.url, alt: "Interior do Jeep Compass", credit: { author: "deathpallie325", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2022_Jeep_Compass_interior.jpg" } },
+    ],
+  },
+  {
+    id: "chevrolet-camaro-ss",
+    name: "Chevrolet Camaro SS",
+    tier: "esportivo",
+    category: "Esportivo cupê",
+    tagline: "Um V8 americano para fazer a viagem virar história.",
+    description:
+      "Ronco grave, aceleração forte e presença que vira cabeças. Para um fim de semana especial, um casamento ou um presente inesquecível.",
+    dailyPriceCents: 119000,
     seats: 4,
-    transmission: "Manual",
+    transmission: "Automático",
     fuel: "Gasolina",
-    features: ["Tração 4x4", "Capota removível", "Pneus para trilha", "Estepe externo"],
+    features: ["Motor 6.2 V8 de 461 cv", "Escapamento esportivo", "Bancos esportivos", "Head-up display"],
     photos: [
-      { src: jipe1, alt: "Jipe Trilheiro bege em trilha de lama na floresta" },
-      { src: jipe2, alt: "Painel clássico do Jipe Trilheiro com vista da trilha" },
-      { src: jipe3, alt: "Jipe Trilheiro de lado diante das montanhas ao entardecer" },
+      { src: camaro1.url, alt: "Chevrolet Camaro SS prata, vista de frente", credit: { author: "Kevauto", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS,_front_11.9.19.jpg" } },
+      { src: camaro2.url, alt: "Chevrolet Camaro SS prata, vista de trás", credit: { author: "Kevauto", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS,_rear_11.9.19.jpg" } },
+      { src: camaro3.url, alt: "Chevrolet Camaro SS prata, outro ângulo", credit: { author: "Kevauto", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS_6.2L_front_3.16.19.jpg" } },
     ],
   },
   {
-    id: "suv-cafezal",
-    name: "SUV Cafezal",
-    category: "SUV",
-    tagline: "Espaço e conforto para a família subir a serra.",
+    id: "ford-mustang-gt",
+    name: "Ford Mustang GT",
+    tier: "esportivo",
+    category: "Esportivo cupê",
+    tagline: "O cavalo mais famoso das estradas, agora na sua garagem.",
     description:
-      "Porta-malas generoso, acabamento em madeira e couro caramelo. Confortável na cidade e firme na estrada de cascalho.",
-    dailyPriceCents: 27900,
-    seats: 5,
+      "Ícone dos esportivos, com V8 de 5.0 litros e acabamento premium. Escolha o modo de condução e aproveite cada curva.",
+    dailyPriceCents: 129000,
+    seats: 4,
     transmission: "Automático",
-    fuel: "Flex",
-    features: ["Central multimídia", "Câmera de ré", "Porta-malas amplo", "Ar-condicionado"],
+    fuel: "Gasolina",
+    features: ["Motor 5.0 V8 de 483 cv", "Painel digital configurável", "Modos de condução", "Bancos com ventilação"],
     photos: [
-      { src: suv1, alt: "SUV Cafezal cor terracota entre plantações de café" },
-      { src: suv2, alt: "Interior do SUV Cafezal com couro caramelo e painel de madeira" },
-      { src: suv3, alt: "SUV Cafezal estacionado diante de uma pousada de pedra" },
+      { src: mustang1.url, alt: "Ford Mustang GT azul, vista de frente", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift.jpg" } },
+      { src: mustang2.url, alt: "Ford Mustang GT azul, vista de trás", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift_Rear_(1).jpg" } },
+      { src: mustang3.url, alt: "Interior do Ford Mustang GT", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift_Interior.jpg" } },
     ],
   },
   {
-    id: "seda-estrada-real",
-    name: "Sedã Estrada Real",
-    category: "Sedã",
-    tagline: "Elegância para viagens longas e compromissos.",
+    id: "porsche-911-carrera",
+    name: "Porsche 911 Carrera",
+    tier: "esportivo",
+    category: "Esportivo de luxo",
+    tagline: "Precisão alemã para quem quer o melhor da estrada.",
     description:
-      "Silencioso, econômico na rodovia e com bancos de couro conhaque. Perfeito para casamentos no campo e viagens a trabalho.",
-    dailyPriceCents: 21900,
-    seats: 5,
+      "Lenda das pistas e das estradas, com motor boxer turbo e câmbio PDK. Dirigibilidade afiada e conforto para o dia a dia.",
+    dailyPriceCents: 249000,
+    seats: 4,
     transmission: "Automático",
-    fuel: "Flex",
-    features: ["Bancos de couro", "Piloto automático", "Sensor de estacionamento", "Ar-condicionado"],
+    fuel: "Gasolina",
+    features: ["Motor boxer 3.0 biturbo", "Câmbio PDK de 8 marchas", "Escapamento esportivo", "Modo Sport Chrono"],
     photos: [
-      { src: seda1, alt: "Sedã Estrada Real vinho em alameda de árvores no outono" },
-      { src: seda2, alt: "Interior do Sedã Estrada Real com couro conhaque" },
-      { src: seda3, alt: "Sedã Estrada Real de lado em frente a uma casa colonial" },
-    ],
-  },
-  {
-    id: "hatch-vila",
-    name: "Hatch Vila",
-    category: "Compacto",
-    tagline: "Leve, econômico e fácil de estacionar.",
-    description:
-      "O companheiro certo para circular pela cidade e pelas vilas históricas, gastando pouco combustível.",
-    dailyPriceCents: 13900,
-    seats: 5,
-    transmission: "Manual",
-    fuel: "Flex",
-    features: ["Econômico", "Direção elétrica", "Rádio com Bluetooth", "Ar-condicionado"],
-    photos: [
-      { src: hatch1, alt: "Hatch Vila creme em rua de paralelepípedo" },
-      { src: hatch2, alt: "Interior simples e claro do Hatch Vila" },
-      { src: hatch3, alt: "Traseira do Hatch Vila diante de um café rústico" },
+      { src: porsche1.url, alt: "Porsche 911 Carrera azul, vista de frente", credit: { author: "Calreyn88", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2022_Porsche_911_992_Carrera_GTS.jpg" } },
+      { src: porsche2.url, alt: "Porsche 911 Carrera azul, vista de trás", credit: { author: "Dinkun Chen", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:PORSCHE_911_(992)_China_(12).jpg" } },
+      { src: porsche3.url, alt: "Porsche 911 Carrera azul, outro ângulo", credit: { author: "Dinkun Chen", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:PORSCHE_911_(992)_China_(13).jpg" } },
     ],
   },
 ];
 
 export function getCar(id: string): Car | undefined {
-  return cars.find((car) => car.id === id);
+  return cars.find((c) => c.id === id);
+}
+
+export function tierLabel(tier: CarTier): string {
+  return tiers.find((t) => t.id === tier)?.label ?? tier;
 }

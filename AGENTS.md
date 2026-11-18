@@ -31,7 +31,8 @@ use the editor.
 
 <!-- AGENT-MEMORY:BEGIN -->
 ## Project rules
-- Fleet data (cars, prices, 3 photos each) lives in `src/data/cars.ts`, not the database — small fixed catalog edited with the code.
+- Fleet data (cars, tiers, prices, 3 photos each) lives in `src/data/cars.ts`, not the database — small fixed catalog edited with the code.
+- Car photos are real free-licensed Wikimedia Commons photos hosted as `src/assets/fleet/*.asset.json` CDN pointers; each photo keeps its author/license credit, shown on the car page, because CC licenses require attribution.
 - Rental math (days, total, date rules) lives in `src/lib/pricing.ts` with tests in `src/test/pricing.test.ts`; the DB trigger `validate_reservation` re-checks days/total on insert.
 - Signed-in pages live under the pathless `_authenticated` layout with `ssr: false`, because the Supabase session is in browser storage; data is protected by RLS.
 - Reservations are inserted by the client only with status `pendente`; any status change (e.g. paid) must come from server code, never the browser.

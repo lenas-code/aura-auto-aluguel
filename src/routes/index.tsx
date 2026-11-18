@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CarFront, ClipboardCheck, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CarCard } from "@/components/site/car-card";
-import { cars } from "@/data/cars";
+import { cars, tiers } from "@/data/cars";
 import hero from "@/assets/hero-estrada.jpg";
 
 // The home route ships no og:image, so serve-time hosting can inject the
@@ -13,12 +13,12 @@ export const Route = createFileRoute("/")({
       { title: "Aura — Aluguel rápido de automóveis" },
       {
         name: "description",
-        content: "Alugue picapes, jipes, SUVs e carros de passeio na Aura. Cadastro rápido, reserva online e chave na mão.",
+        content: "Alugue carros econômicos, SUVs e esportivos na Aura. Cadastro rápido, reserva online e chave na mão.",
       },
       { property: "og:title", content: "Aura — Aluguel rápido de automóveis" },
       {
         property: "og:description",
-        content: "Alugue picapes, jipes, SUVs e carros de passeio na Aura. Cadastro rápido, reserva online e chave na mão.",
+        content: "Alugue carros econômicos, SUVs e esportivos na Aura. Cadastro rápido, reserva online e chave na mão.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -34,7 +34,7 @@ const steps = [
 ];
 
 function Index() {
-  const featured = cars.slice(0, 3);
+  const featured = tiers.flatMap((t) => cars.find((c) => c.tier === t.id) ?? []);
 
   return (
     <>

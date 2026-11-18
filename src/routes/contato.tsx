@@ -19,7 +19,7 @@ export const Route = createFileRoute("/contato")({
 const items = [
   { icon: Phone, title: "Telefone e WhatsApp", lines: ["(31) 98595-5189"], href: "https://wa.me/5531985955189" },
   { icon: Mail, title: "E-mail", lines: ["hellena.main1@gmail.com"], href: "mailto:hellena.main1@gmail.com" },
-  { icon: Clock, title: "Horário", lines: ["Segunda a sábado, 7h às 20h", "Domingos e feriados, 8h às 14h"] },
+  { icon: Clock, title: "Horário", lines: ["Segunda a sábado, 7h às 19h", "Domingos e feriados, 8h às 13h"] },
 ];
 
 function ContatoPage() {

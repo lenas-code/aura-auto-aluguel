@@ -4,7 +4,7 @@ import { Check, Cog, Fuel, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { getCar } from "@/data/cars";
+import { getCar, tierLabel } from "@/data/cars";
 import { checkRental, formatBRL, todayIso } from "@/lib/pricing";
 
 export const Route = createFileRoute("/frota/$carId")({
@@ -83,11 +83,18 @@ function CarPage() {
               </button>
             ))}
           </div>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Foto:{" "}
+            <a href={photo.credit.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-primary">
+              {photo.credit.author}
+            </a>{" "}
+            ({photo.credit.license}), via Wikimedia Commons
+          </p>
         </div>
 
         <div className="space-y-6">
           <div>
-            <p className="ornament">{car.category}</p>
+            <p className="ornament">{tierLabel(car.tier)} · {car.category}</p>
             <h1 className="mt-3 text-4xl font-bold md:text-5xl">{car.name}</h1>
             <p className="mt-3 text-lg text-muted-foreground">{car.description}</p>
           </div>

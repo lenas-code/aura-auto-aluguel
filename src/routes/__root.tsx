@@ -85,12 +85,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Aura — Aluguel rápido de automóveis" },
       {
         name: "description",
-        content: "Locadora Aura: picapes, jipes, SUVs e carros de passeio para alugar rápido, com cadastro e reserva online.",
+        content: "Locadora Aura: carros econômicos, SUVs e esportivos para alugar rápido, com cadastro e reserva online.",
       },
       { property: "og:title", content: "Aura — Aluguel rápido de automóveis" },
       {
         property: "og:description",
-        content: "Locadora Aura: picapes, jipes, SUVs e carros de passeio para alugar rápido, com cadastro e reserva online.",
+        content: "Locadora Aura: carros econômicos, SUVs e esportivos para alugar rápido, com cadastro e reserva online.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,

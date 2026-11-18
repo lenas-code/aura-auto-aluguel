@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeartHandshake, ShieldCheck, Timer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageBanner } from "@/components/site/page-banner";
-import barn from "@/assets/cars/picape-3.jpg";
+import tcrossRear from "@/assets/fleet/tcross-2.jpg.asset.json";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -31,12 +31,12 @@ function SobrePage() {
         A Aura nasceu para quem precisa de um carro rápido, sem papelada demais e com o cuidado de quem trata cliente pelo nome.
       </PageBanner>
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-2">
-        <img src={barn} alt="Picape estacionada ao lado de um celeiro" className="rounded-md border-4 border-card shadow-warm" />
+        <img src={tcrossRear.url} alt="Volkswagen T-Cross branco numa estrada de serra" className="rounded-md border-4 border-card shadow-warm" />
         <div className="space-y-4 text-lg text-muted-foreground">
           <h2 className="text-3xl font-bold text-foreground">Do asfalto ao cascalho</h2>
           <p>
-            Montamos uma frota pensada para o dia a dia e para a aventura: picape para a fazenda, jipe para a trilha,
-            SUV para a família e carros econômicos para a cidade.
+            Montamos uma frota para cada bolso e cada ocasião: econômicos para a cidade, SUVs e sedãs confortáveis
+            para viajar com a família e esportivos para os dias especiais.
           </p>
           <p>
             Nosso jeito é simples: você escolhe o carro, faz seu cadastro uma vez e reserva quando precisar.
