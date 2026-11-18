@@ -17,9 +17,9 @@ export const Route = createFileRoute("/contato")({
 });
 
 const items = [
-  { icon: Phone, title: "Telefone e WhatsApp", lines: ["(11) 4002-8922"] },
-  { icon: Mail, title: "E-mail", lines: ["contato@auralocadora.com.br"] },
-  { icon: MapPin, title: "Endereço", lines: ["Rodovia dos Tropeiros, km 12", "Retirada e devolução no local"] },
+  { icon: Phone, title: "Telefone e WhatsApp", lines: ["(00) 00000-0000"] },
+  { icon: Mail, title: "E-mail", lines: ["contato@seudominio.com.br"] },
+  { icon: MapPin, title: "Endereço", lines: ["Endereço a informar", "Retirada e devolução no local"] },
   { icon: Clock, title: "Horário", lines: ["Segunda a sábado, 7h às 20h", "Domingos e feriados, 8h às 14h"] },
 ];
 

@@ -28,7 +28,7 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm text-wood-muted">
             <li>Segunda a sábado, 7h às 20h</li>
             <li>Domingos e feriados, 8h às 14h</li>
-            <li>contato@auralocadora.com.br</li>
+            <li>contato@seudominio.com.br</li>
           </ul>
         </div>
       </div>
