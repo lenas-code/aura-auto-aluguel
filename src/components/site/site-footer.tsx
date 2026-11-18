@@ -28,7 +28,16 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm text-wood-muted">
             <li>Segunda a sábado, 7h às 20h</li>
             <li>Domingos e feriados, 8h às 14h</li>
-            <li>contato@seudominio.com.br</li>
+            <li>
+              <a href="https://wa.me/5531985955189" target="_blank" rel="noreferrer" className="hover:text-wood-foreground">
+                WhatsApp (31) 98595-5189
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hellena.main1@gmail.com" className="break-all hover:text-wood-foreground">
+                hellena.main1@gmail.com
+              </a>
+            </li>
           </ul>
         </div>
       </div>

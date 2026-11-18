@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, Phone } from "lucide-react";
 import { PageBanner } from "@/components/site/page-banner";
 
 export const Route = createFileRoute("/contato")({
@@ -17,9 +17,8 @@ export const Route = createFileRoute("/contato")({
 });
 
 const items = [
-  { icon: Phone, title: "Telefone e WhatsApp", lines: ["(00) 00000-0000"] },
-  { icon: Mail, title: "E-mail", lines: ["contato@seudominio.com.br"] },
-  { icon: MapPin, title: "Endereço", lines: ["Endereço a informar", "Retirada e devolução no local"] },
+  { icon: Phone, title: "Telefone e WhatsApp", lines: ["(31) 98595-5189"], href: "https://wa.me/5531985955189" },
+  { icon: Mail, title: "E-mail", lines: ["hellena.main1@gmail.com"], href: "mailto:hellena.main1@gmail.com" },
   { icon: Clock, title: "Horário", lines: ["Segunda a sábado, 7h às 20h", "Domingos e feriados, 8h às 14h"] },
 ];
 
@@ -30,15 +29,27 @@ function ContatoPage() {
         Dúvidas sobre um carro, uma reserva ou um caminho? Chame a gente.
       </PageBanner>
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           {items.map((item) => (
             <div key={item.title} className="stitched flex gap-5 rounded-md border bg-card p-8 shadow-warm">
               <item.icon className="size-8 shrink-0 text-primary" />
               <div className="min-w-0">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>
-                {item.lines.map((line) => (
-                  <p key={line} className="mt-1 break-words text-muted-foreground">{line}</p>
-                ))}
+                {item.lines.map((line) =>
+                  "href" in item && item.href ? (
+                    <a
+                      key={line}
+                      href={item.href}
+                      target={item.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noreferrer"
+                      className="mt-1 block break-words text-lg text-primary underline-offset-4 hover:underline"
+                    >
+                      {line}
+                    </a>
+                  ) : (
+                    <p key={line} className="mt-1 break-words text-muted-foreground">{line}</p>
+                  ),
+                )}
               </div>
             </div>
           ))}
