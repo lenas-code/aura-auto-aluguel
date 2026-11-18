@@ -10,33 +10,147 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
+import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as EntrarRouteImport } from './routes/entrar'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as AuthenticatedContaRouteImport } from './routes/_authenticated.conta'
+import { Route as AuthenticatedPagamentoRouteImport } from './routes/_authenticated.pagamento'
+import { Route as FrotaIndexRouteImport } from './routes/frota.index'
+import { Route as FrotaCarIdRouteImport } from './routes/frota.$carId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroRoute = CadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EntrarRoute = EntrarRouteImport.update({
+  id: '/entrar',
+  path: '/entrar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedContaRoute = AuthenticatedContaRouteImport.update({
+  id: '/conta',
+  path: '/conta',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedPagamentoRoute = AuthenticatedPagamentoRouteImport.update({
+  id: '/pagamento',
+  path: '/pagamento',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const FrotaIndexRoute = FrotaIndexRouteImport.update({
+  id: '/frota/',
+  path: '/frota/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FrotaCarIdRoute = FrotaCarIdRouteImport.update({
+  id: '/frota/$carId',
+  path: '/frota/$carId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
+  '/contato': typeof ContatoRoute
+  '/entrar': typeof EntrarRoute
+  '/sobre': typeof SobreRoute
+  '/conta': typeof AuthenticatedContaRoute
+  '/pagamento': typeof AuthenticatedPagamentoRoute
+  '/frota/$carId': typeof FrotaCarIdRoute
+  '/frota/': typeof FrotaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cadastro': typeof CadastroRoute
+  '/contato': typeof ContatoRoute
+  '/entrar': typeof EntrarRoute
+  '/sobre': typeof SobreRoute
+  '/conta': typeof AuthenticatedContaRoute
+  '/pagamento': typeof AuthenticatedPagamentoRoute
+  '/frota/$carId': typeof FrotaCarIdRoute
+  '/frota': typeof FrotaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteWithChildren
+  '/cadastro': typeof CadastroRoute
+  '/contato': typeof ContatoRoute
+  '/entrar': typeof EntrarRoute
+  '/sobre': typeof SobreRoute
+  '/_authenticated/conta': typeof AuthenticatedContaRoute
+  '/_authenticated/pagamento': typeof AuthenticatedPagamentoRoute
+  '/frota/$carId': typeof FrotaCarIdRoute
+  '/frota/': typeof FrotaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/cadastro'
+    | '/contato'
+    | '/entrar'
+    | '/sobre'
+    | '/conta'
+    | '/pagamento'
+    | '/frota/$carId'
+    | '/frota/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/cadastro'
+    | '/contato'
+    | '/entrar'
+    | '/sobre'
+    | '/conta'
+    | '/pagamento'
+    | '/frota/$carId'
+    | '/frota'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/cadastro'
+    | '/contato'
+    | '/entrar'
+    | '/sobre'
+    | '/_authenticated/conta'
+    | '/_authenticated/pagamento'
+    | '/frota/$carId'
+    | '/frota/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
+  CadastroRoute: typeof CadastroRoute
+  ContatoRoute: typeof ContatoRoute
+  EntrarRoute: typeof EntrarRoute
+  SobreRoute: typeof SobreRoute
+  FrotaCarIdRoute: typeof FrotaCarIdRoute
+  FrotaIndexRoute: typeof FrotaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +162,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro': {
+      id: '/cadastro'
+      path: '/cadastro'
+      fullPath: '/cadastro'
+      preLoaderRoute: typeof CadastroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/entrar': {
+      id: '/entrar'
+      path: '/entrar'
+      fullPath: '/entrar'
+      preLoaderRoute: typeof EntrarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/conta': {
+      id: '/_authenticated/conta'
+      path: '/conta'
+      fullPath: '/conta'
+      preLoaderRoute: typeof AuthenticatedContaRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/pagamento': {
+      id: '/_authenticated/pagamento'
+      path: '/pagamento'
+      fullPath: '/pagamento'
+      preLoaderRoute: typeof AuthenticatedPagamentoRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/frota/': {
+      id: '/frota/'
+      path: '/frota'
+      fullPath: '/frota/'
+      preLoaderRoute: typeof FrotaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/frota/$carId': {
+      id: '/frota/$carId'
+      path: '/frota/$carId'
+      fullPath: '/frota/$carId'
+      preLoaderRoute: typeof FrotaCarIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AuthenticatedRouteChildren {
+  AuthenticatedContaRoute: typeof AuthenticatedContaRoute
+  AuthenticatedPagamentoRoute: typeof AuthenticatedPagamentoRoute
+}
+
+const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedContaRoute: AuthenticatedContaRoute,
+  AuthenticatedPagamentoRoute: AuthenticatedPagamentoRoute,
+}
+
+const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
+  AuthenticatedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRoute: AuthenticatedRouteWithChildren,
+  CadastroRoute: CadastroRoute,
+  ContatoRoute: ContatoRoute,
+  EntrarRoute: EntrarRoute,
+  SobreRoute: SobreRoute,
+  FrotaCarIdRoute: FrotaCarIdRoute,
+  FrotaIndexRoute: FrotaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
