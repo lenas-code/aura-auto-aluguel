@@ -26,6 +26,8 @@ import porsche1 from "@/assets/fleet/porsche-1.jpg.asset.json";
 import porsche2 from "@/assets/fleet/porsche-2.jpg.asset.json";
 import porsche3 from "@/assets/fleet/porsche-3.jpg.asset.json";
 
+import { extraCars } from "./cars-extra";
+
 export type PhotoCredit = { author: string; license: string; url: string };
 export type CarPhoto = { src: string; alt: string; credit: PhotoCredit };
 
@@ -52,7 +54,7 @@ export type Car = {
   photos: [CarPhoto, CarPhoto, CarPhoto];
 };
 
-export const cars: Car[] = [
+const baseCars: Car[] = [
   {
     id: "fiat-mobi",
     name: "Fiat Mobi Trekking",
@@ -225,6 +227,9 @@ export const cars: Car[] = [
     ],
   },
 ];
+
+// Whole fleet, cheapest first inside each tier listing.
+export const cars: Car[] = [...baseCars, ...extraCars].sort((a, b) => a.dailyPriceCents - b.dailyPriceCents);
 
 export function getCar(id: string): Car | undefined {
   return cars.find((c) => c.id === id);

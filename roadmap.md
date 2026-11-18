@@ -8,3 +8,5 @@
 - [x] Frota com carros reais (econômicos, intermediários, esportivos) e fotos reais
 - [x] Logo da Aura e ícone da aba
 - [x] Horários reais no rodapé e no contato
+- [x] Mais ~50 carros reais com 3 fotos reais cada
+- [x] Foto da página inicial e logo com tema de carro

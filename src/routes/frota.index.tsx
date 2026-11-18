@@ -39,7 +39,9 @@ function FrotaPage() {
             <div className="mb-6 flex flex-wrap items-end justify-between gap-2 border-b border-dashed pb-4">
               <div>
                 <h2 className="text-3xl font-bold">{t.label}</h2>
-                <p className="text-muted-foreground">{t.description}</p>
+                <p className="text-muted-foreground">
+                  {t.description} · {group.length} carros
+                </p>
               </div>
               <p className="text-sm text-muted-foreground">
                 a partir de <span className="font-display text-lg font-bold text-primary">{formatBRL(from)}</span>/dia

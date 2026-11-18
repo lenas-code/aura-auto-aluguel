@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { CarFront, ClipboardCheck, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CarCard } from "@/components/site/car-card";
-import { cars, tiers } from "@/data/cars";
-import hero from "@/assets/hero-estrada.jpg";
+import { getCar } from "@/data/cars";
+import hero from "@/assets/hero-garagem.jpg";
 
 // The home route ships no og:image, so serve-time hosting can inject the
 // project's social preview (explicit og:image or latest screenshot).
@@ -27,6 +27,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const featuredIds = ["fiat-mobi", "volkswagen-t-cross", "chevrolet-camaro-ss"];
+
 const steps = [
   { icon: CarFront, title: "Escolha o carro", text: "Veja a frota, as fotos e o valor da diária de cada veículo." },
   { icon: ClipboardCheck, title: "Faça seu cadastro", text: "Nome, telefone, CPF e CNH. Leva menos de dois minutos." },
@@ -34,12 +36,12 @@ const steps = [
 ];
 
 function Index() {
-  const featured = tiers.flatMap((t) => cars.find((c) => c.tier === t.id) ?? []);
+  const featured = featuredIds.flatMap((id) => getCar(id) ?? []);
 
   return (
     <>
       <section className="relative isolate overflow-hidden">
-        <img src={hero} alt="Estrada de terra ao pôr do sol com celeiro de madeira" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <img src={hero} alt="SUV verde estacionado em frente a uma garagem de madeira ao pôr do sol" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-linear-to-r from-wood/90 via-wood/60 to-transparent" />
         <div className="mx-auto max-w-6xl px-4 py-24 text-wood-foreground md:py-36">
           <p className="ornament text-wood-foreground">Locadora de veículos</p>
