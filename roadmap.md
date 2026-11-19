@@ -10,3 +10,4 @@
 - [x] Horários reais no rodapé e no contato
 - [x] Mais ~50 carros reais com 3 fotos reais cada
 - [x] Foto da página inicial e logo com tema de carro
+- [x] Mais 80 carros reais com 3 fotos reais cada (140 no total)

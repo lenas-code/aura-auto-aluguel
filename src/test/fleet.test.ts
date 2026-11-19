@@ -15,6 +15,6 @@ describe("frota", () => {
   it("tem os carros nas três faixas, sem ids repetidos", () => {
     expect(new Set(cars.map((c) => c.id)).size).toBe(cars.length);
     for (const t of tiers) expect(cars.some((c) => c.tier === t.id)).toBe(true);
-    expect(cars.length).toBeGreaterThanOrEqual(59);
+    expect(cars.length).toBeGreaterThanOrEqual(140);
   });
 });
