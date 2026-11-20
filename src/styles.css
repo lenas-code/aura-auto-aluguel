@@ -158,6 +158,13 @@
     outline-offset: -8px;
   }
 
+  /* The search field has its own clear button, so the browser's is hidden. */
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+
   .wood-grain {
     background-color: var(--wood);
     background-image:

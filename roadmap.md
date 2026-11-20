@@ -11,3 +11,4 @@
 - [x] Mais ~50 carros reais com 3 fotos reais cada
 - [x] Foto da página inicial e logo com tema de carro
 - [x] Mais 80 carros reais com 3 fotos reais cada (140 no total)
+- [x] Barra de pesquisa na frota: marca, nome do carro ou tipo (sedã, SUV, picape…)

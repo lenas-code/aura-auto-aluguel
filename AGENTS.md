@@ -37,4 +37,5 @@ use the editor.
 - Signed-in pages live under the pathless `_authenticated` layout with `ssr: false`, because the Supabase session is in browser storage; data is protected by RLS.
 - Reservations are inserted by the client only with status `pendente`; any status change (e.g. paid) must come from server code, never the browser.
 - Route files use dot naming (`frota.$carId.tsx`, `_authenticated.conta.tsx`), not folders.
+- Fleet search (brand, name, type) lives in `src/lib/car-search.ts` with tests in `src/test/car-search.test.ts`; it matches only identifying facts (name, brand, category, tier, features, fuel, transmission) — never tagline/description, because marketing prose calls a pickup an SUV.
 <!-- AGENT-MEMORY:END -->
