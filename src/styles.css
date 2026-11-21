@@ -12,12 +12,15 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Aura — rustic design system: parchment, espresso wood, rust and moss.
+ * Aura — "Miami vibes" design system: night violet-navy, neon hot pink and aqua,
+ * sunset gradient (orange -> pink -> violet), palms and neon script accents.
+ * The site is dark by default, so :root and .dark hold the same palette.
  */
 
 @theme inline {
-  --font-sans: "Work Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Zilla Slab", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Pacifico", cursive;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -45,11 +48,13 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
-  --color-wood: var(--wood);
-  --color-wood-foreground: var(--wood-foreground);
-  --color-wood-muted: var(--wood-muted);
-  --color-moss: var(--moss);
-  --color-moss-foreground: var(--moss-foreground);
+  --color-night: var(--night);
+  --color-night-foreground: var(--night-foreground);
+  --color-night-muted: var(--night-muted);
+  --color-aqua: var(--aqua);
+  --color-aqua-foreground: var(--aqua-foreground);
+  --color-sunset: var(--sunset);
+  --color-violet: var(--violet);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -63,76 +68,54 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --shadow-warm: var(--shadow-warm);
+  --shadow-neon: var(--shadow-neon);
 }
 
-:root {
-  --radius: 0.375rem;
-  --background: oklch(0.955 0.024 82);
-  --foreground: oklch(0.26 0.03 50);
-  --card: oklch(0.978 0.016 84);
-  --card-foreground: oklch(0.26 0.03 50);
-  --popover: oklch(0.978 0.016 84);
-  --popover-foreground: oklch(0.26 0.03 50);
-  --primary: oklch(0.53 0.13 42);
-  --primary-foreground: oklch(0.97 0.02 85);
-  --secondary: oklch(0.9 0.035 76);
-  --secondary-foreground: oklch(0.26 0.03 50);
-  --muted: oklch(0.92 0.026 78);
-  --muted-foreground: oklch(0.47 0.035 55);
-  --accent: oklch(0.88 0.04 95);
-  --accent-foreground: oklch(0.26 0.03 50);
-  --destructive: oklch(0.55 0.2 27);
-  --destructive-foreground: oklch(0.97 0.02 85);
-  --border: oklch(0.82 0.04 70);
-  --input: oklch(0.8 0.04 70);
-  --ring: oklch(0.53 0.13 42);
-  --wood: oklch(0.27 0.035 45);
-  --wood-foreground: oklch(0.94 0.03 82);
-  --wood-muted: oklch(0.75 0.04 70);
-  --moss: oklch(0.48 0.07 125);
-  --moss-foreground: oklch(0.97 0.02 85);
-  --shadow-warm: 0 18px 40px -18px color-mix(in oklab, var(--wood) 55%, transparent);
-  --chart-1: oklch(0.53 0.13 42);
-  --chart-2: oklch(0.48 0.07 125);
-  --chart-3: oklch(0.65 0.1 70);
-  --chart-4: oklch(0.4 0.05 50);
-  --chart-5: oklch(0.75 0.08 85);
-  --sidebar: oklch(0.955 0.024 82);
-  --sidebar-foreground: oklch(0.26 0.03 50);
-  --sidebar-primary: oklch(0.53 0.13 42);
-  --sidebar-primary-foreground: oklch(0.97 0.02 85);
-  --sidebar-accent: oklch(0.9 0.035 76);
-  --sidebar-accent-foreground: oklch(0.26 0.03 50);
-  --sidebar-border: oklch(0.82 0.04 70);
-  --sidebar-ring: oklch(0.53 0.13 42);
-}
-
+:root,
 .dark {
-  --background: oklch(0.22 0.025 48);
-  --foreground: oklch(0.94 0.03 82);
-  --card: oklch(0.27 0.03 48);
-  --card-foreground: oklch(0.94 0.03 82);
-  --popover: oklch(0.27 0.03 48);
-  --popover-foreground: oklch(0.94 0.03 82);
-  --primary: oklch(0.62 0.13 45);
-  --primary-foreground: oklch(0.2 0.02 48);
-  --secondary: oklch(0.32 0.03 50);
-  --secondary-foreground: oklch(0.94 0.03 82);
-  --muted: oklch(0.32 0.03 50);
-  --muted-foreground: oklch(0.75 0.04 70);
-  --accent: oklch(0.35 0.04 90);
-  --accent-foreground: oklch(0.94 0.03 82);
-  --destructive: oklch(0.65 0.19 25);
-  --destructive-foreground: oklch(0.97 0.02 85);
-  --border: oklch(0.4 0.03 55);
-  --input: oklch(0.4 0.03 55);
-  --ring: oklch(0.62 0.13 45);
-  --wood: oklch(0.18 0.02 45);
-  --wood-foreground: oklch(0.94 0.03 82);
-  --wood-muted: oklch(0.7 0.04 70);
-  --moss: oklch(0.55 0.08 125);
-  --moss-foreground: oklch(0.97 0.02 85);
+  --radius: 0.875rem;
+  --background: oklch(0.17 0.05 290);
+  --foreground: oklch(0.97 0.015 330);
+  --card: oklch(0.22 0.06 290);
+  --card-foreground: oklch(0.97 0.015 330);
+  --popover: oklch(0.22 0.06 290);
+  --popover-foreground: oklch(0.97 0.015 330);
+  --primary: oklch(0.68 0.25 355);
+  --primary-foreground: oklch(0.99 0.005 330);
+  --secondary: oklch(0.27 0.065 290);
+  --secondary-foreground: oklch(0.97 0.015 330);
+  --muted: oklch(0.25 0.055 290);
+  --muted-foreground: oklch(0.77 0.04 300);
+  --accent: oklch(0.82 0.13 195);
+  --accent-foreground: oklch(0.18 0.05 290);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.99 0.005 330);
+  --border: oklch(0.35 0.08 295);
+  --input: oklch(0.37 0.08 295);
+  --ring: oklch(0.68 0.25 355);
+  --night: oklch(0.13 0.045 285);
+  --night-foreground: oklch(0.97 0.015 330);
+  --night-muted: oklch(0.77 0.04 300);
+  --aqua: oklch(0.82 0.13 195);
+  --aqua-foreground: oklch(0.18 0.05 290);
+  --sunset: oklch(0.78 0.17 55);
+  --violet: oklch(0.58 0.22 300);
+  --gradient-sunset: linear-gradient(90deg, var(--sunset), var(--primary) 50%, var(--violet));
+  --shadow-neon: 0 24px 60px -24px color-mix(in oklab, var(--primary) 60%, transparent);
+  --chart-1: oklch(0.68 0.25 355);
+  --chart-2: oklch(0.82 0.13 195);
+  --chart-3: oklch(0.78 0.17 55);
+  --chart-4: oklch(0.58 0.22 300);
+  --chart-5: oklch(0.9 0.1 90);
+  --sidebar: oklch(0.17 0.05 290);
+  --sidebar-foreground: oklch(0.97 0.015 330);
+  --sidebar-primary: oklch(0.68 0.25 355);
+  --sidebar-primary-foreground: oklch(0.99 0.005 330);
+  --sidebar-accent: oklch(0.27 0.065 290);
+  --sidebar-accent-foreground: oklch(0.97 0.015 330);
+  --sidebar-border: oklch(0.35 0.08 295);
+  --sidebar-ring: oklch(0.68 0.25 355);
+  color-scheme: dark;
 }
 
 @layer base {
@@ -143,19 +126,40 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.22 0 0 0 0 0.1 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-image:
+      radial-gradient(60rem 30rem at 85% -10%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 70%),
+      radial-gradient(50rem 30rem at -10% 30%, color-mix(in oklab, var(--aqua) 10%, transparent), transparent 70%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 }
 
+@utility bg-sunset {
+  background-image: var(--gradient-sunset);
+}
+
+@utility text-sunset {
+  background-image: var(--gradient-sunset);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility neon-text {
+  text-shadow:
+    0 0 6px color-mix(in oklab, currentColor 70%, transparent),
+    0 0 22px color-mix(in oklab, currentColor 45%, transparent);
+}
+
 @layer components {
-  .stitched {
-    outline: 1.5px dashed color-mix(in oklab, var(--primary) 45%, transparent);
-    outline-offset: -8px;
+  /* Neon outline on cards and panels. */
+  .neon-edge {
+    box-shadow:
+      inset 0 0 0 1px color-mix(in oklab, var(--primary) 35%, transparent),
+      0 0 30px -12px color-mix(in oklab, var(--primary) 55%, transparent);
   }
 
   /* The search field has its own clear button, so the browser's is hidden. */
@@ -165,39 +169,45 @@
     display: none;
   }
 
-  .wood-grain {
-    background-color: var(--wood);
+  /* Header, footer and feature bands: night sky with pink and aqua glow. */
+  .miami-night {
+    background-color: var(--night);
     background-image:
-      repeating-linear-gradient(
-        92deg,
-        color-mix(in oklab, var(--wood-foreground) 4%, transparent) 0 2px,
-        transparent 2px 9px
-      ),
-      repeating-linear-gradient(
-        88deg,
-        color-mix(in oklab, black 12%, transparent) 0 1px,
-        transparent 1px 23px
-      );
+      radial-gradient(40rem 12rem at 100% 0%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 70%),
+      radial-gradient(30rem 12rem at 0% 100%, color-mix(in oklab, var(--aqua) 14%, transparent), transparent 70%);
   }
 
+  /* Retro sun-grid floor used under hero sections. */
+  .synth-grid {
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--primary) 35%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--primary) 35%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to top, black, transparent);
+    transform: perspective(400px) rotateX(60deg);
+    transform-origin: bottom;
+  }
+
+  /* Neon script kicker above headings. */
   .ornament {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--primary);
-    font-family: var(--font-display);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.75rem;
-    font-weight: 600;
+    color: var(--aqua);
+    font-family: var(--font-script);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    text-shadow:
+      0 0 6px color-mix(in oklab, var(--aqua) 70%, transparent),
+      0 0 20px color-mix(in oklab, var(--aqua) 40%, transparent);
   }
 
   .ornament::before,
   .ornament::after {
     content: "";
-    height: 1px;
+    height: 2px;
     width: 2.5rem;
-    background: currentColor;
-    opacity: 0.6;
+    border-radius: 999px;
+    background: var(--gradient-sunset);
   }
 }

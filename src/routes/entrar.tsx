@@ -63,7 +63,7 @@ function EntrarPage() {
       {search.redirect?.startsWith("/pagamento") ? (
         <p className="mt-3 text-center text-muted-foreground">Entre ou cadastre-se para concluir sua reserva.</p>
       ) : null}
-      <div className="stitched mt-8 rounded-md border bg-card p-6 shadow-warm md:p-8">
+      <div className="neon-edge mt-8 rounded-md border bg-card p-6 shadow-neon md:p-8">
         <SocialSignIn redirectTo={target} />
         <div className="my-6 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
           <span className="h-px flex-1 bg-border" /> ou com e-mail <span className="h-px flex-1 bg-border" />

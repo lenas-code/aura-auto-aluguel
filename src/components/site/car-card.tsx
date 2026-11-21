@@ -8,7 +8,7 @@ export function CarCard({ car }: { car: Car }) {
     <Link
       to="/frota/$carId"
       params={{ carId: car.id }}
-      className="group flex flex-col overflow-hidden rounded-md border bg-card shadow-warm transition-transform hover:-translate-y-1"
+      className="group flex flex-col overflow-hidden rounded-md border bg-card shadow-neon transition-transform hover:-translate-y-1"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
@@ -17,7 +17,7 @@ export function CarCard({ car }: { car: Car }) {
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded-sm bg-wood/85 px-2 py-1 text-xs font-semibold uppercase tracking-widest text-wood-foreground">
+        <span className="absolute left-3 top-3 rounded-sm bg-night/85 px-2 py-1 text-xs font-semibold uppercase tracking-widest text-night-foreground">
           {tierLabel(car.tier)}
         </span>
       </div>
@@ -32,7 +32,7 @@ export function CarCard({ car }: { car: Car }) {
           <span className="inline-flex items-center gap-1"><Cog className="size-4" /> {car.transmission}</span>
           <span className="inline-flex items-center gap-1"><Fuel className="size-4" /> {car.fuel}</span>
         </div>
-        <div className="mt-auto flex items-end justify-between border-t border-dashed pt-4">
+        <div className="mt-auto flex items-end justify-between border-t pt-4">
           <p>
             <span className="font-display text-2xl font-bold text-primary">{formatBRL(car.dailyPriceCents)}</span>
             <span className="text-sm text-muted-foreground"> /dia</span>

@@ -64,7 +64,7 @@ function CarPage() {
 
       <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <div>
-          <div className="overflow-hidden rounded-md border-4 border-card shadow-warm">
+          <div className="overflow-hidden rounded-md border-4 border-card shadow-neon">
             <img src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full object-cover" />
           </div>
           <div className="mt-4 grid grid-cols-3 gap-3">
@@ -107,11 +107,11 @@ function CarPage() {
 
           <ul className="grid grid-cols-2 gap-2 text-sm">
             {car.features.map((f) => (
-              <li key={f} className="flex items-center gap-2"><Check className="size-4 text-moss" /> {f}</li>
+              <li key={f} className="flex items-center gap-2"><Check className="size-4 text-aqua" /> {f}</li>
             ))}
           </ul>
 
-          <div className="stitched rounded-md border bg-card p-6 shadow-warm">
+          <div className="neon-edge rounded-md border bg-card p-6 shadow-neon">
             <p>
               <span className="font-display text-3xl font-bold text-primary">{formatBRL(car.dailyPriceCents)}</span>
               <span className="text-muted-foreground"> por dia</span>

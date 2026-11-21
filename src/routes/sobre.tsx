@@ -31,7 +31,7 @@ function SobrePage() {
         A Aura nasceu para quem precisa de um carro rápido, sem papelada demais e com o cuidado de quem trata cliente pelo nome.
       </PageBanner>
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-2">
-        <img src={tcrossRear.url} alt="Volkswagen T-Cross branco numa estrada de serra" className="rounded-md border-4 border-card shadow-warm" />
+        <img src={tcrossRear.url} alt="Volkswagen T-Cross branco numa estrada de serra" className="rounded-md border-4 border-card shadow-neon" />
         <div className="space-y-4 text-lg text-muted-foreground">
           <h2 className="text-3xl font-bold text-foreground">Do asfalto ao cascalho</h2>
           <p>
@@ -49,8 +49,8 @@ function SobrePage() {
       <section className="mx-auto max-w-6xl px-4">
         <div className="grid gap-6 md:grid-cols-3">
           {values.map((v) => (
-            <div key={v.title} className="rounded-md border bg-card p-8 shadow-warm">
-              <v.icon className="size-9 text-moss" />
+            <div key={v.title} className="rounded-md border bg-card p-8 shadow-neon">
+              <v.icon className="size-9 text-aqua" />
               <h3 className="mt-4 text-2xl font-semibold">{v.title}</h3>
               <p className="mt-2 text-muted-foreground">{v.text}</p>
             </div>

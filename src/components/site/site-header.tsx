@@ -8,7 +8,8 @@ import { Logo } from "./logo";
 
 const links = [
   { to: "/", label: "Início" },
-  { to: "/frota", label: "Frota" },
+  { to: "/frota", label: "Carros" },
+  { to: "/motos", label: "Motos" },
   { to: "/sobre", label: "Sobre" },
   { to: "/contato", label: "Contato" },
 ] as const;
@@ -18,7 +19,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="wood-grain sticky top-0 z-40 border-b-4 border-primary text-wood-foreground shadow-warm">
+    <header className="miami-night sticky top-0 z-40 text-night-foreground shadow-neon">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-4 px-4">
         <Logo />
 
@@ -28,8 +29,8 @@ export function SiteHeader() {
               key={link.to}
               to={link.to}
               activeOptions={{ exact: link.to === "/" }}
-              className="rounded-sm px-3 py-2 font-display text-lg text-wood-foreground/80 transition-colors hover:text-wood-foreground"
-              activeProps={{ className: "text-wood-foreground underline decoration-primary decoration-2 underline-offset-8" }}
+              className="rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] text-night-foreground/75 transition-colors hover:text-aqua"
+              activeProps={{ className: "bg-primary/15 text-primary neon-text" }}
             >
               {link.label}
             </Link>
@@ -39,7 +40,7 @@ export function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           {user ? (
             <>
-              <Button asChild variant="ghost" className="text-wood-foreground hover:bg-wood-foreground/10 hover:text-wood-foreground">
+              <Button asChild variant="ghost" className="text-night-foreground hover:bg-night-foreground/10 hover:text-night-foreground">
                 <Link to="/conta">
                   <UserRound /> Minha conta
                 </Link>
@@ -49,14 +50,14 @@ export function SiteHeader() {
                 size="icon"
                 aria-label="Sair"
                 onClick={() => void signOut()}
-                className="text-wood-foreground hover:bg-wood-foreground/10 hover:text-wood-foreground"
+                className="text-night-foreground hover:bg-night-foreground/10 hover:text-night-foreground"
               >
                 <LogOut />
               </Button>
             </>
           ) : (
             <>
-              <Button asChild variant="ghost" className="text-wood-foreground hover:bg-wood-foreground/10 hover:text-wood-foreground">
+              <Button asChild variant="ghost" className="text-night-foreground hover:bg-night-foreground/10 hover:text-night-foreground">
                 <Link to="/entrar">Entrar</Link>
               </Button>
               <Button asChild>
@@ -71,7 +72,7 @@ export function SiteHeader() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-wood-foreground hover:bg-wood-foreground/10 hover:text-wood-foreground md:hidden"
+              className="text-night-foreground hover:bg-night-foreground/10 hover:text-night-foreground md:hidden"
               aria-label="Abrir menu"
             >
               <Menu className="size-6" />
@@ -88,16 +89,16 @@ export function SiteHeader() {
                   to={link.to}
                   onClick={() => setOpen(false)}
                   activeOptions={{ exact: link.to === "/" }}
-                  className="rounded-sm px-3 py-3 font-display text-xl hover:bg-secondary"
+                  className="rounded-sm px-3 py-3 font-display text-lg hover:bg-secondary"
                   activeProps={{ className: "bg-secondary text-primary" }}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="my-3 border-t border-dashed" />
+              <div className="my-3 border-t" />
               {user ? (
                 <>
-                  <Link to="/conta" onClick={() => setOpen(false)} className="rounded-sm px-3 py-3 font-display text-xl hover:bg-secondary">
+                  <Link to="/conta" onClick={() => setOpen(false)} className="rounded-sm px-3 py-3 font-display text-lg hover:bg-secondary">
                     Minha conta
                   </Link>
                   <button
@@ -106,14 +107,14 @@ export function SiteHeader() {
                       setOpen(false);
                       void signOut();
                     }}
-                    className="rounded-sm px-3 py-3 text-left font-display text-xl hover:bg-secondary"
+                    className="rounded-sm px-3 py-3 text-left font-display text-lg hover:bg-secondary"
                   >
                     Sair
                   </button>
                 </>
               ) : (
                 <>
-                  <Link to="/entrar" onClick={() => setOpen(false)} className="rounded-sm px-3 py-3 font-display text-xl hover:bg-secondary">
+                  <Link to="/entrar" onClick={() => setOpen(false)} className="rounded-sm px-3 py-3 font-display text-lg hover:bg-secondary">
                     Entrar
                   </Link>
                   <Button asChild size="lg" className="mt-2">
@@ -127,6 +128,7 @@ export function SiteHeader() {
           </SheetContent>
         </Sheet>
       </div>
+      <div className="h-0.5 bg-sunset" aria-hidden="true" />
     </header>
   );
 }

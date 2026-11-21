@@ -12,5 +12,5 @@
 - [x] Foto da página inicial e logo com tema de carro
 - [x] Mais 80 carros reais com 3 fotos reais cada (140 no total)
 - [x] Barra de pesquisa na frota: marca, nome do carro ou tipo (sedã, SUV, picape…)
-- [ ] Visual novo combinando com o nome Aura (azul-noite com brilho dourado/rosa) e nova logo (roda em forma de A)
+- [ ] Visual novo "Miami vibes" (neon rosa e azul-piscina, pôr do sol, palmeiras) e nova logo (roda em forma de A)
 - [ ] Motos reais com 3 fotos reais cada, em página própria no menu

@@ -74,7 +74,7 @@ function CadastroPage() {
   if (sentTo) {
     return (
       <div className="mx-auto max-w-lg px-4 py-24 text-center">
-        <MailCheck className="mx-auto size-14 text-moss" />
+        <MailCheck className="mx-auto size-14 text-aqua" />
         <h1 className="mt-4 text-4xl font-bold">Confira seu e-mail</h1>
         <p className="mt-3 text-muted-foreground">
           Enviamos um link de confirmação para <strong>{sentTo}</strong>. Clique nele para ativar seu cadastro e depois entre na sua conta.
@@ -108,7 +108,7 @@ function CadastroPage() {
         Com o cadastro feito, suas reservas ficam prontas em poucos cliques.
       </p>
 
-      <div className="stitched mt-10 rounded-md border bg-card p-6 shadow-warm md:p-10">
+      <div className="neon-edge mt-10 rounded-md border bg-card p-6 shadow-neon md:p-10">
         <SocialSignIn redirectTo="/conta" />
         <div className="my-6 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
           <span className="h-px flex-1 bg-border" /> ou preencha <span className="h-px flex-1 bg-border" />

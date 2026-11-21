@@ -85,12 +85,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Aura — Aluguel rápido de automóveis" },
       {
         name: "description",
-        content: "Locadora Aura: carros econômicos, SUVs e esportivos para alugar rápido, com cadastro e reserva online.",
+        content: "Locadora Aura: carros e motos para alugar rápido, com cadastro e reserva online.",
       },
       { property: "og:title", content: "Aura — Aluguel rápido de automóveis" },
       {
         property: "og:description",
-        content: "Locadora Aura: carros econômicos, SUVs e esportivos para alugar rápido, com cadastro e reserva online.",
+        content: "Locadora Aura: carros e motos para alugar rápido, com cadastro e reserva online.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&family=Zilla+Slab:wght@500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Pacifico&family=Unbounded:wght@500;600;700;800&display=swap",
       },
       {
         rel: "stylesheet",

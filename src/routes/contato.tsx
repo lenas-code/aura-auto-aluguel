@@ -31,7 +31,7 @@ function ContatoPage() {
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid gap-6 md:grid-cols-3">
           {items.map((item) => (
-            <div key={item.title} className="stitched flex gap-5 rounded-md border bg-card p-8 shadow-warm">
+            <div key={item.title} className="neon-edge flex gap-5 rounded-md border bg-card p-8 shadow-neon">
               <item.icon className="size-8 shrink-0 text-primary" />
               <div className="min-w-0">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>

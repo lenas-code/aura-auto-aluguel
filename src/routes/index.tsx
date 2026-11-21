@@ -42,16 +42,16 @@ function Index() {
     <>
       <section className="relative isolate overflow-hidden">
         <img src={hero} alt="SUV verde estacionado em frente a uma garagem de madeira ao pôr do sol" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-linear-to-r from-wood/90 via-wood/60 to-transparent" />
-        <div className="mx-auto max-w-6xl px-4 py-24 text-wood-foreground md:py-36">
-          <p className="ornament text-wood-foreground">Locadora de veículos</p>
+        <div className="absolute inset-0 -z-10 bg-linear-to-r from-night/90 via-night/60 to-transparent" />
+        <div className="mx-auto max-w-6xl px-4 py-24 text-night-foreground md:py-36">
+          <p className="ornament text-night-foreground">Locadora de veículos</p>
           <h1 className="mt-5 max-w-2xl text-5xl font-bold leading-[1.05] md:text-7xl">
             Aura
-            <span className="mt-2 block text-3xl font-medium text-wood-foreground/90 md:text-4xl">
+            <span className="mt-2 block text-3xl font-medium text-night-foreground/90 md:text-4xl">
               aluguel rápido de automóveis
             </span>
           </h1>
-          <p className="mt-6 max-w-lg text-lg text-wood-foreground/85">
+          <p className="mt-6 max-w-lg text-lg text-night-foreground/85">
             Do asfalto à estrada de terra: carros revisados, atendimento de gente da terra e chave na mão sem burocracia.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -62,7 +62,7 @@ function Index() {
               asChild
               size="lg"
               variant="outline"
-              className="h-12 border-wood-foreground/60 bg-transparent px-8 text-base text-wood-foreground hover:bg-wood-foreground/10 hover:text-wood-foreground"
+              className="h-12 border-night-foreground/60 bg-transparent px-8 text-base text-night-foreground hover:bg-night-foreground/10 hover:text-night-foreground"
             >
               <Link to="/cadastro">Criar cadastro</Link>
             </Button>
@@ -75,7 +75,7 @@ function Index() {
         <h2 className="mt-3 text-center text-4xl font-bold">Três passos e pé na estrada</h2>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {steps.map((step, i) => (
-            <div key={step.title} className="stitched relative rounded-md border bg-card p-8 shadow-warm">
+            <div key={step.title} className="neon-edge relative rounded-md border bg-card p-8 shadow-neon">
               <span className="absolute right-6 top-4 font-display text-5xl font-bold text-primary/15">{i + 1}</span>
               <step.icon className="size-9 text-primary" />
               <h3 className="mt-4 text-2xl font-semibold">{step.title}</h3>
@@ -103,11 +103,11 @@ function Index() {
       </section>
 
       <section className="mx-auto mt-24 max-w-6xl px-4">
-        <div className="wood-grain rounded-md p-10 text-wood-foreground shadow-warm md:p-14">
+        <div className="miami-night rounded-md p-10 text-night-foreground shadow-neon md:p-14">
           <div className="grid items-center gap-8 md:grid-cols-[1fr_auto]">
             <div>
               <h2 className="text-3xl font-bold md:text-4xl">Primeira vez na Aura?</h2>
-              <p className="mt-3 max-w-xl text-wood-foreground/80">
+              <p className="mt-3 max-w-xl text-night-foreground/80">
                 Faça seu cadastro uma vez e suas próximas reservas ficam ainda mais rápidas.
               </p>
             </div>

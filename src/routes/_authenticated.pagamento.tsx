@@ -114,7 +114,7 @@ function PagamentoPage() {
   if (done) {
     return (
       <div className="mx-auto max-w-xl px-4 py-20 text-center">
-        <BadgeCheck className="mx-auto size-16 text-moss" />
+        <BadgeCheck className="mx-auto size-16 text-aqua" />
         <h1 className="mt-4 text-4xl font-bold">Reserva registrada!</h1>
         <p className="mt-3 text-muted-foreground">
           Código <strong className="font-mono">{done.id.slice(0, 8).toUpperCase()}</strong> · {car.name} de{" "}
@@ -140,7 +140,7 @@ function PagamentoPage() {
       <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <div className="space-y-8">
           {!profileOk ? (
-            <section className="rounded-md border bg-card p-6 shadow-warm">
+            <section className="rounded-md border bg-card p-6 shadow-neon">
               <h2 className="text-2xl font-semibold">1. Complete seu cadastro</h2>
               <p className="mt-1 text-sm text-muted-foreground">Precisamos desses dados para liberar o carro.</p>
               <div className="mt-5">
@@ -157,7 +157,7 @@ function PagamentoPage() {
               </div>
             </section>
           ) : (
-            <section className="rounded-md border bg-card p-6 shadow-warm">
+            <section className="rounded-md border bg-card p-6 shadow-neon">
               <h2 className="text-2xl font-semibold">1. Seus dados</h2>
               <p className="mt-2 text-muted-foreground">
                 {profile?.full_name} · CPF ***.{profile?.cpf.slice(3, 6)}.***-{profile?.cpf.slice(9)}
@@ -168,7 +168,7 @@ function PagamentoPage() {
             </section>
           )}
 
-          <section className="rounded-md border bg-card p-6 shadow-warm">
+          <section className="rounded-md border bg-card p-6 shadow-neon">
             <h2 className="text-2xl font-semibold">2. Datas</h2>
             <div className="mt-4 grid grid-cols-2 gap-3">
               <div className="space-y-1">
@@ -183,7 +183,7 @@ function PagamentoPage() {
             {check && !check.ok ? <p className="mt-3 text-sm text-destructive">{check.reason}</p> : null}
           </section>
 
-          <section className="rounded-md border bg-card p-6 shadow-warm">
+          <section className="rounded-md border bg-card p-6 shadow-neon">
             <h2 className="text-2xl font-semibold">3. Forma de pagamento</h2>
             <RadioGroup value={method} onValueChange={setMethod} className="mt-4 grid gap-3">
               {methods.map((m) => (
@@ -197,7 +197,7 @@ function PagamentoPage() {
                   <span className="text-base">{m.label}</span>
                 </Label>
               ))}
-              <div className="flex items-center gap-3 rounded-md border border-dashed p-4 text-muted-foreground">
+              <div className="flex items-center gap-3 rounded-md border p-4 text-muted-foreground">
                 <CreditCard className="size-5" />
                 <span>Cartão online — em breve</span>
               </div>
@@ -206,7 +206,7 @@ function PagamentoPage() {
         </div>
 
         <aside className="lg:sticky lg:top-28 lg:self-start">
-          <div className="stitched overflow-hidden rounded-md border bg-card shadow-warm">
+          <div className="neon-edge overflow-hidden rounded-md border bg-card shadow-neon">
             <img src={car.photos[0].src} alt={car.photos[0].alt} className="aspect-[16/9] w-full object-cover" />
             <div className="space-y-4 p-6">
               <div>
@@ -219,7 +219,7 @@ function PagamentoPage() {
                 <div className="flex justify-between"><dt className="text-muted-foreground">Diária</dt><dd>{formatBRL(car.dailyPriceCents)}</dd></div>
                 <div className="flex justify-between"><dt className="text-muted-foreground">Diárias</dt><dd>{check?.ok ? check.days : "—"}</dd></div>
               </dl>
-              <div className="flex items-end justify-between border-t border-dashed pt-4">
+              <div className="flex items-end justify-between border-t pt-4">
                 <span className="font-display text-lg">Total</span>
                 <span className="font-display text-3xl font-bold text-primary">{check?.ok ? formatBRL(check.totalCents) : "—"}</span>
               </div>

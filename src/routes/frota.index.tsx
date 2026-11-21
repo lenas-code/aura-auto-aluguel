@@ -56,9 +56,9 @@ function FrotaPage() {
         Todos revisados, limpos e com tanque cheio. Pesquise por marca, nome do carro ou tipo e clique para ver as fotos e reservar.
       </PageBanner>
 
-      <div className="sticky top-20 z-30 border-b border-dashed bg-background/95 backdrop-blur">
+      <div className="sticky top-20 z-30 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto max-w-6xl px-4 py-4">
-          <div className="stitched flex items-center gap-3 rounded-sm bg-card px-4 py-3">
+          <div className="neon-edge flex items-center gap-3 rounded-sm bg-card px-4 py-3">
             <Search className="size-5 shrink-0 text-muted-foreground" aria-hidden />
             <input
               type="search"
@@ -91,7 +91,7 @@ function FrotaPage() {
                 key={chip.query}
                 type="button"
                 onClick={() => update(chip.query)}
-                className="rounded-sm border border-dashed px-3 py-1 text-sm hover:border-solid hover:text-primary"
+                className="rounded-sm border px-3 py-1 text-sm hover:text-primary"
               >
                 {chip.label}
               </button>
@@ -103,7 +103,7 @@ function FrotaPage() {
       {!searching ? (
         <nav aria-label="Categorias" className="mx-auto flex max-w-6xl flex-wrap gap-3 px-4 pt-10">
           {tiers.map((t) => (
-            <a key={t.id} href={`#${t.id}`} className="stitched rounded-sm bg-card px-4 py-2 font-display text-lg hover:text-primary">
+            <a key={t.id} href={`#${t.id}`} className="neon-edge rounded-sm bg-card px-4 py-2 font-display text-lg hover:text-primary">
               {t.label}
             </a>
           ))}
@@ -131,7 +131,7 @@ function FrotaPage() {
           const from = Math.min(...group.map((c) => c.dailyPriceCents));
           return (
             <section key={t.id} id={t.id} className="mx-auto max-w-6xl scroll-mt-44 px-4 py-12">
-              <div className="mb-6 flex flex-wrap items-end justify-between gap-2 border-b border-dashed pb-4">
+              <div className="mb-6 flex flex-wrap items-end justify-between gap-2 border-b pb-4">
                 <div>
                   <h2 className="text-3xl font-bold">{t.label}</h2>
                   <p className="text-muted-foreground">
