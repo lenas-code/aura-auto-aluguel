@@ -104,7 +104,7 @@ function PagamentoPage() {
   if (!car) {
     return (
       <div className="mx-auto max-w-xl px-4 py-24 text-center">
-        <h1 className="text-4xl font-bold">Escolha um carro primeiro</h1>
+        <h1 className="text-4xl font-bold">Escolha um veículo primeiro</h1>
         <p className="mt-3 text-muted-foreground">Selecione o veículo e as datas na frota para chegar ao pagamento.</p>
         <Button asChild className="mt-6"><Link to="/frota">Ver a frota</Link></Button>
       </div>
@@ -120,7 +120,7 @@ function PagamentoPage() {
           Código <strong className="font-mono">{done.id.slice(0, 8).toUpperCase()}</strong> · {car.name} de{" "}
           {formatDateBR(pickup)} a {formatDateBR(returnDate)}.
         </p>
-        <p className="mt-2 text-muted-foreground">O pagamento será feito na retirada do carro.</p>
+        <p className="mt-2 text-muted-foreground">O pagamento será feito na retirada do veículo.</p>
         <div className="mt-8 flex justify-center gap-3">
           <Button asChild><Link to="/conta">Ver minhas reservas</Link></Button>
           <Button asChild variant="outline"><Link to="/frota">Voltar à frota</Link></Button>
@@ -140,9 +140,9 @@ function PagamentoPage() {
       <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <div className="space-y-8">
           {!profileOk ? (
-            <section className="rounded-md border bg-card p-6 shadow-neon">
+            <section className="neon-edge rounded-2xl bg-card p-6">
               <h2 className="text-2xl font-semibold">1. Complete seu cadastro</h2>
-              <p className="mt-1 text-sm text-muted-foreground">Precisamos desses dados para liberar o carro.</p>
+              <p className="mt-1 text-sm text-muted-foreground">Precisamos desses dados para liberar o veículo.</p>
               <div className="mt-5">
                 <ProfileForm
                   userId={userId}
@@ -157,7 +157,7 @@ function PagamentoPage() {
               </div>
             </section>
           ) : (
-            <section className="rounded-md border bg-card p-6 shadow-neon">
+            <section className="neon-edge rounded-2xl bg-card p-6">
               <h2 className="text-2xl font-semibold">1. Seus dados</h2>
               <p className="mt-2 text-muted-foreground">
                 {profile?.full_name} · CPF ***.{profile?.cpf.slice(3, 6)}.***-{profile?.cpf.slice(9)}
@@ -168,7 +168,7 @@ function PagamentoPage() {
             </section>
           )}
 
-          <section className="rounded-md border bg-card p-6 shadow-neon">
+          <section className="neon-edge rounded-2xl bg-card p-6">
             <h2 className="text-2xl font-semibold">2. Datas</h2>
             <div className="mt-4 grid grid-cols-2 gap-3">
               <div className="space-y-1">
@@ -183,7 +183,7 @@ function PagamentoPage() {
             {check && !check.ok ? <p className="mt-3 text-sm text-destructive">{check.reason}</p> : null}
           </section>
 
-          <section className="rounded-md border bg-card p-6 shadow-neon">
+          <section className="neon-edge rounded-2xl bg-card p-6">
             <h2 className="text-2xl font-semibold">3. Forma de pagamento</h2>
             <RadioGroup value={method} onValueChange={setMethod} className="mt-4 grid gap-3">
               {methods.map((m) => (
@@ -206,7 +206,7 @@ function PagamentoPage() {
         </div>
 
         <aside className="lg:sticky lg:top-28 lg:self-start">
-          <div className="neon-edge overflow-hidden rounded-md border bg-card shadow-neon">
+          <div className="neon-edge overflow-hidden rounded-2xl bg-card">
             <img src={car.photos[0].src} alt={car.photos[0].alt} className="aspect-[16/9] w-full object-cover" />
             <div className="space-y-4 p-6">
               <div>

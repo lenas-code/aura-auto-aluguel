@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cars } from "@/data/cars";
+import { cars, motos } from "@/data/cars";
 import { brandOf, queryTokens, searchCars } from "@/lib/car-search";
 
 const ids = (list: ReturnType<typeof searchCars>) => list.map((c) => c.id);
@@ -68,5 +68,21 @@ describe("pesquisa da frota", () => {
   it("sinônimos viram uma busca só", () => {
     expect(queryTokens("sedan")).toEqual(["seda"]);
     expect(queryTokens("pickup")).toEqual(["picape"]);
+  });
+});
+
+describe("pesquisa de motos", () => {
+  it("acha moto por marca, nome e estilo", () => {
+    expect(searchCars(motos, "ducati").every((m) => m.name.startsWith("Ducati"))).toBe(true);
+    expect(searchCars(motos, "pcx").map((m) => m.id)).toContain("honda-pcx-160");
+    const scooters = searchCars(motos, "scooter");
+    expect(scooters.length).toBeGreaterThan(0);
+    expect(scooters.every((m) => /Scooter/.test(m.category))).toBe(true);
+  });
+
+  it("'moto' e 'motos' encontram só motos", () => {
+    const all = [...cars, ...motos];
+    expect(searchCars(all, "motos").every((v) => v.kind === "moto")).toBe(true);
+    expect(searchCars(all, "moto").length).toBe(motos.length);
   });
 });

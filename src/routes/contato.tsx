@@ -25,13 +25,13 @@ const items = [
 function ContatoPage() {
   return (
     <>
-      <PageBanner kicker="Fale com a gente" title="Estamos na beira da estrada">
+      <PageBanner kicker="Fale com a gente" title="Chama a gente no WhatsApp">
         Dúvidas sobre um carro, uma reserva ou um caminho? Chame a gente.
       </PageBanner>
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="grid gap-6 md:grid-cols-3">
           {items.map((item) => (
-            <div key={item.title} className="neon-edge flex gap-5 rounded-md border bg-card p-8 shadow-neon">
+            <div key={item.title} className="neon-edge flex gap-5 rounded-2xl bg-card p-8">
               <item.icon className="size-8 shrink-0 text-primary" />
               <div className="min-w-0">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>

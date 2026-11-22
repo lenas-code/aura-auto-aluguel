@@ -4,12 +4,12 @@ import { AuraMark } from "./logo";
 export function SiteFooter() {
   return (
     <footer className="miami-night mt-24 text-night-foreground">
-      <div className="h-0.5 bg-sunset" aria-hidden="true" />
+      <div className="h-0.5 bg-gradient-sunset" aria-hidden="true" />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-3">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             <AuraMark className="size-14" />
-            <span className="font-display text-2xl font-extrabold text-sunset">AURA</span>
+            <span className="font-display text-2xl font-extrabold text-gradient-sunset">AURA</span>
           </div>
           <p className="max-w-xs text-sm text-night-muted">
             Aluguel rápido de carros e motos. Escolha, reserve e saia curtindo a estrada.

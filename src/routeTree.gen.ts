@@ -19,6 +19,8 @@ import { Route as AuthenticatedContaRouteImport } from './routes/_authenticated.
 import { Route as AuthenticatedPagamentoRouteImport } from './routes/_authenticated.pagamento'
 import { Route as FrotaIndexRouteImport } from './routes/frota.index'
 import { Route as FrotaCarIdRouteImport } from './routes/frota.$carId'
+import { Route as MotosIndexRouteImport } from './routes/motos.index'
+import { Route as MotosMotoIdRouteImport } from './routes/motos.$motoId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -69,6 +71,16 @@ const FrotaCarIdRoute = FrotaCarIdRouteImport.update({
   path: '/frota/$carId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MotosIndexRoute = MotosIndexRouteImport.update({
+  id: '/motos/',
+  path: '/motos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MotosMotoIdRoute = MotosMotoIdRouteImport.update({
+  id: '/motos/$motoId',
+  path: '/motos/$motoId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -79,7 +91,9 @@ export interface FileRoutesByFullPath {
   '/conta': typeof AuthenticatedContaRoute
   '/pagamento': typeof AuthenticatedPagamentoRoute
   '/frota/$carId': typeof FrotaCarIdRoute
+  '/motos/$motoId': typeof MotosMotoIdRoute
   '/frota/': typeof FrotaIndexRoute
+  '/motos/': typeof MotosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -90,7 +104,9 @@ export interface FileRoutesByTo {
   '/conta': typeof AuthenticatedContaRoute
   '/pagamento': typeof AuthenticatedPagamentoRoute
   '/frota/$carId': typeof FrotaCarIdRoute
+  '/motos/$motoId': typeof MotosMotoIdRoute
   '/frota': typeof FrotaIndexRoute
+  '/motos': typeof MotosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -103,7 +119,9 @@ export interface FileRoutesById {
   '/_authenticated/conta': typeof AuthenticatedContaRoute
   '/_authenticated/pagamento': typeof AuthenticatedPagamentoRoute
   '/frota/$carId': typeof FrotaCarIdRoute
+  '/motos/$motoId': typeof MotosMotoIdRoute
   '/frota/': typeof FrotaIndexRoute
+  '/motos/': typeof MotosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -116,7 +134,9 @@ export interface FileRouteTypes {
     | '/conta'
     | '/pagamento'
     | '/frota/$carId'
+    | '/motos/$motoId'
     | '/frota/'
+    | '/motos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -127,7 +147,9 @@ export interface FileRouteTypes {
     | '/conta'
     | '/pagamento'
     | '/frota/$carId'
+    | '/motos/$motoId'
     | '/frota'
+    | '/motos'
   id:
     | '__root__'
     | '/'
@@ -139,7 +161,9 @@ export interface FileRouteTypes {
     | '/_authenticated/conta'
     | '/_authenticated/pagamento'
     | '/frota/$carId'
+    | '/motos/$motoId'
     | '/frota/'
+    | '/motos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -150,7 +174,9 @@ export interface RootRouteChildren {
   EntrarRoute: typeof EntrarRoute
   SobreRoute: typeof SobreRoute
   FrotaCarIdRoute: typeof FrotaCarIdRoute
+  MotosMotoIdRoute: typeof MotosMotoIdRoute
   FrotaIndexRoute: typeof FrotaIndexRoute
+  MotosIndexRoute: typeof MotosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -225,6 +251,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FrotaCarIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/motos/': {
+      id: '/motos/'
+      path: '/motos'
+      fullPath: '/motos/'
+      preLoaderRoute: typeof MotosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/motos/$motoId': {
+      id: '/motos/$motoId'
+      path: '/motos/$motoId'
+      fullPath: '/motos/$motoId'
+      preLoaderRoute: typeof MotosMotoIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -250,7 +290,9 @@ const rootRouteChildren: RootRouteChildren = {
   EntrarRoute: EntrarRoute,
   SobreRoute: SobreRoute,
   FrotaCarIdRoute: FrotaCarIdRoute,
+  MotosMotoIdRoute: MotosMotoIdRoute,
   FrotaIndexRoute: FrotaIndexRoute,
+  MotosIndexRoute: MotosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

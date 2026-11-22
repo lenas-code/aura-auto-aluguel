@@ -108,7 +108,7 @@ function CadastroPage() {
         Com o cadastro feito, suas reservas ficam prontas em poucos cliques.
       </p>
 
-      <div className="neon-edge mt-10 rounded-md border bg-card p-6 shadow-neon md:p-10">
+      <div className="neon-edge mt-10 rounded-2xl bg-card p-6 md:p-10">
         <SocialSignIn redirectTo="/conta" />
         <div className="my-6 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
           <span className="h-px flex-1 bg-border" /> ou preencha <span className="h-px flex-1 bg-border" />

@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { Users, Fuel, Cog } from "lucide-react";
-import { tierLabel, type Car } from "@/data/cars";
+import type { ReactNode } from "react";
+import { isMoto, tierLabelFor, type Car } from "@/data/cars";
 import { formatBRL } from "@/lib/pricing";
 
 export function CarCard({ car }: { car: Car }) {
   return (
-    <Link
-      to="/frota/$carId"
-      params={{ carId: car.id }}
-      className="group flex flex-col overflow-hidden rounded-md border bg-card shadow-neon transition-transform hover:-translate-y-1"
+    <CardLink
+      car={car}
+      className="neon-edge group flex flex-col overflow-hidden rounded-2xl bg-card transition-all hover:-translate-y-1 hover:shadow-neon"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
@@ -17,14 +17,14 @@ export function CarCard({ car }: { car: Car }) {
           loading="lazy"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute left-3 top-3 rounded-sm bg-night/85 px-2 py-1 text-xs font-semibold uppercase tracking-widest text-night-foreground">
-          {tierLabel(car.tier)}
+        <span className="absolute left-3 top-3 rounded-full bg-night/80 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-aqua backdrop-blur-sm">
+          {tierLabelFor(car)}
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground">{car.category}</p>
-          <h3 className="text-2xl font-semibold">{car.name}</h3>
+          <p className="text-xs font-semibold uppercase tracking-widest text-aqua">{car.category}</p>
+          <h3 className="text-xl font-semibold">{car.name}</h3>
         </div>
         <p className="text-sm text-muted-foreground">{car.tagline}</p>
         <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
@@ -37,9 +37,21 @@ export function CarCard({ car }: { car: Car }) {
             <span className="font-display text-2xl font-bold text-primary">{formatBRL(car.dailyPriceCents)}</span>
             <span className="text-sm text-muted-foreground"> /dia</span>
           </p>
-          <span className="font-display text-primary underline-offset-4 group-hover:underline">Ver detalhes →</span>
+          <span className="text-sm font-semibold text-primary underline-offset-4 group-hover:underline">Ver detalhes →</span>
         </div>
       </div>
+    </CardLink>
+  );
+}
+
+function CardLink({ car, className, children }: { car: Car; className: string; children: ReactNode }) {
+  return isMoto(car) ? (
+    <Link to="/motos/$motoId" params={{ motoId: car.id }} className={className}>
+      {children}
+    </Link>
+  ) : (
+    <Link to="/frota/$carId" params={{ carId: car.id }} className={className}>
+      {children}
     </Link>
   );
 }

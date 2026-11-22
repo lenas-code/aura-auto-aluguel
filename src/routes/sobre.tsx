@@ -8,9 +8,9 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
       { title: "Sobre — Aura Aluguel de Automóveis" },
-      { name: "description", content: "Conheça a Aura: locadora de veículos com jeito de interior, carros revisados e aluguel sem burocracia." },
+      { name: "description", content: "Conheça a Aura: locadora de carros e motos com estilo, veículos revisados e aluguel sem burocracia." },
       { property: "og:title", content: "Sobre a Aura" },
-      { property: "og:description", content: "Locadora de veículos com jeito de interior, carros revisados e aluguel sem burocracia." },
+      { property: "og:description", content: "Locadora de carros e motos com estilo, veículos revisados e aluguel sem burocracia." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -21,27 +21,27 @@ export const Route = createFileRoute("/sobre")({
 const values = [
   { icon: Timer, title: "Rapidez", text: "Cadastro online e reserva em poucos cliques. Na retirada, é só conferir o carro e sair." },
   { icon: ShieldCheck, title: "Carro revisado", text: "Cada veículo passa por revisão e limpeza antes de cada locação." },
-  { icon: HeartHandshake, title: "Atendimento de perto", text: "Gente que conhece as estradas da região e indica o melhor caminho." },
+  { icon: HeartHandshake, title: "Atendimento de perto", text: "Atendimento rápido pelo WhatsApp, de gente que trata você pelo nome." },
 ];
 
 function SobrePage() {
   return (
     <>
-      <PageBanner kicker="Nossa história" title="Uma locadora com cheiro de estrada de terra">
-        A Aura nasceu para quem precisa de um carro rápido, sem papelada demais e com o cuidado de quem trata cliente pelo nome.
+      <PageBanner kicker="Nossa história" title="Sol, estrada e a chave na mão">
+        A Aura nasceu para quem quer um carro ou uma moto rápido, sem papelada demais e com muito estilo.
       </PageBanner>
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-2">
-        <img src={tcrossRear.url} alt="Volkswagen T-Cross branco numa estrada de serra" className="rounded-md border-4 border-card shadow-neon" />
+        <img src={tcrossRear.url} alt="Volkswagen T-Cross branco numa estrada de serra" className="neon-edge rounded-3xl" />
         <div className="space-y-4 text-lg text-muted-foreground">
-          <h2 className="text-3xl font-bold text-foreground">Do asfalto ao cascalho</h2>
+          <h2 className="text-3xl font-bold text-foreground">Para cada rolê, um veículo</h2>
           <p>
-            Montamos uma frota para cada bolso e cada ocasião: econômicos para a cidade, SUVs e sedãs confortáveis
-            para viajar com a família e esportivos para os dias especiais.
+            Montamos uma frota para cada bolso e cada ocasião: econômicos para a cidade, SUVs e sedãs para viajar
+            com a família, esportivos para os dias especiais e motos, da scooter à superesportiva.
           </p>
           <p>
-            Nosso jeito é simples: você escolhe o carro, faz seu cadastro uma vez e reserva quando precisar.
+            Nosso jeito é simples: você escolhe o carro ou a moto, faz seu cadastro uma vez e reserva quando precisar.
           </p>
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="rounded-full">
             <Link to="/frota">Conhecer a frota</Link>
           </Button>
         </div>
@@ -49,9 +49,9 @@ function SobrePage() {
       <section className="mx-auto max-w-6xl px-4">
         <div className="grid gap-6 md:grid-cols-3">
           {values.map((v) => (
-            <div key={v.title} className="rounded-md border bg-card p-8 shadow-neon">
+            <div key={v.title} className="neon-edge rounded-2xl bg-card p-8">
               <v.icon className="size-9 text-aqua" />
-              <h3 className="mt-4 text-2xl font-semibold">{v.title}</h3>
+              <h3 className="mt-4 text-xl font-semibold">{v.title}</h3>
               <p className="mt-2 text-muted-foreground">{v.text}</p>
             </div>
           ))}

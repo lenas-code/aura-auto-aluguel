@@ -48,7 +48,7 @@ function ContaPage() {
       <p className="mt-2 text-muted-foreground">{email}</p>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
-        <section className="rounded-md border bg-card p-6 shadow-neon">
+        <section className="neon-edge rounded-2xl bg-card p-6">
           <h2 className="text-2xl font-semibold">Meus dados</h2>
           <div className="mt-5">
             <ProfileForm
@@ -68,14 +68,14 @@ function ContaPage() {
           {reservations.length === 0 ? (
             <div className="mt-4 rounded-md border p-8 text-center">
               <p className="text-muted-foreground">Você ainda não tem reservas.</p>
-              <Button asChild className="mt-4"><Link to="/frota">Escolher um carro</Link></Button>
+              <Button asChild className="mt-4"><Link to="/frota">Escolher um veículo</Link></Button>
             </div>
           ) : (
             <ul className="mt-4 space-y-4">
               {reservations.map((r) => {
                 const car = getCar(r.car_id);
                 return (
-                  <li key={r.id} className="grid grid-cols-[auto_minmax(0,1fr)] gap-4 rounded-md border bg-card p-4 shadow-neon">
+                  <li key={r.id} className="grid grid-cols-[auto_minmax(0,1fr)] gap-4 neon-edge rounded-2xl bg-card p-4">
                     {car ? (
                       <img src={car.photos[0].src} alt="" className="size-20 shrink-0 rounded-sm object-cover sm:h-20 sm:w-28" />
                     ) : (

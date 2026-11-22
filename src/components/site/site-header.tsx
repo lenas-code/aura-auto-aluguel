@@ -128,7 +128,7 @@ export function SiteHeader() {
           </SheetContent>
         </Sheet>
       </div>
-      <div className="h-0.5 bg-sunset" aria-hidden="true" />
+      <div className="h-0.5 bg-gradient-sunset" aria-hidden="true" />
     </header>
   );
 }

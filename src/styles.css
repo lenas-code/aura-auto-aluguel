@@ -138,11 +138,11 @@
   }
 }
 
-@utility bg-sunset {
+@utility bg-gradient-sunset {
   background-image: var(--gradient-sunset);
 }
 
-@utility text-sunset {
+@utility text-gradient-sunset {
   background-image: var(--gradient-sunset);
   background-clip: text;
   color: transparent;

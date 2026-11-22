@@ -462,7 +462,7 @@ export const motos: Car[] = [
     photos: [
       photo("kawasaki-z900-1", "Kawasaki Z900RS, vista lateral", "Mr.choppers", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:2024_Kawasaki_Z900RS_ABS_in_Metallic_Diablo_Black,_left_side.jpg"),
       photo("kawasaki-z900-2", "Kawasaki Z900RS, outro ângulo", "AVMOTO", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Kawasaki_Z900_RS_2025_Eicma_2024.jpg"),
-      photo("kawasaki-z900-3", "Kawasaki Z900RS, outro ângulo", "Kawasaki ninja 400", "CC0", "https://commons.wikimedia.org/wiki/File:2026_Kawasaki_Z900.jpg"),
+      photo("kawasaki-z900-3", "Kawasaki Z900RS, vista de trás", "Tokumeigakarinoaoshima", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:The_rearview_of_Kawasaki_Z900RS_mid-year_2019.jpg"),
     ],
   },
   {
@@ -498,7 +498,7 @@ export const motos: Car[] = [
     fuel: "Gasolina",
     features: ["Motor bicilíndrico Testastretta", "Freio ABS", "Controle de tração", "Painel digital"],
     photos: [
-      photo("ducati-monster-1", "Ducati Monster, vista lateral", "Quelle: Thomas Skowron / Freisteller, Bildbearbeitung & Retu", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Ducati_Monster_696_2012_RightSide_noBG.jpg"),
+      photo("ducati-monster-1", "Ducati Monster, vista lateral", "Thomas Skowron", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Ducati_Monster_696_2012_RightSide_noBG.jpg"),
       photo("ducati-monster-2", "Ducati Monster, outro ângulo", "Dennis Bratland", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:2014_Ducati_Monster_1200.JPG"),
       photo("ducati-monster-3", "Ducati Monster, outro ângulo", "Sinank56", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Ducati_Monster_696_2013.jpg"),
     ],

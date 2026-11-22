@@ -1,4 +1,4 @@
-import { tierLabel, type Car } from "@/data/cars";
+import { tierLabelFor, type Car } from "@/data/cars";
 
 // Brands whose name is two words: the first word alone is not the brand.
 const TWO_WORD_BRANDS = ["Aston Martin", "Caoa Chery", "Land Rover", "Mercedes-Benz", "Alfa Romeo"];
@@ -6,6 +6,13 @@ const TWO_WORD_BRANDS = ["Aston Martin", "Caoa Chery", "Land Rover", "Mercedes-B
 // Query words the user types -> text we look for inside a car.
 // "sedã" becomes "seda" once accents are stripped, so "sedan" has to be mapped to it.
 const QUERY_SYNONYMS: Record<string, string> = {
+  // "moto" alone would also match "motor" in car features, so it maps to a word only motos carry.
+  moto: "motocicleta",
+  motos: "motocicleta",
+  motocicletas: "motocicleta",
+  carros: "carro",
+  scooters: "scooter",
+  motoneta: "scooter",
   sedan: "seda",
   sedans: "seda",
   picape: "picape",
@@ -72,7 +79,8 @@ function haystackOf(car: Car): string {
       car.name,
       brandOf(car),
       car.category,
-      tierLabel(car.tier),
+      tierLabelFor(car),
+      car.kind === "moto" ? "motocicleta" : "carro automovel",
       car.features.join(" "),
       car.fuel,
       car.transmission,

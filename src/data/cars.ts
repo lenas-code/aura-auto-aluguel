@@ -28,6 +28,7 @@ import porsche3 from "@/assets/fleet/porsche-3.jpg.asset.json";
 
 import { extraCars } from "./cars-extra";
 import { extraCars2 } from "./cars-extra2";
+import { motos as motoList } from "./motos";
 
 export type PhotoCredit = { author: string; license: string; url: string };
 export type CarPhoto = { src: string; alt: string; credit: PhotoCredit };
@@ -42,6 +43,8 @@ export const tiers: { id: CarTier; label: string; description: string }[] = [
 
 export type Car = {
   id: string;
+  /** Present only on motorcycles; cars leave it out. */
+  kind?: "moto";
   name: string;
   tier: CarTier;
   category: string;
@@ -49,7 +52,7 @@ export type Car = {
   description: string;
   dailyPriceCents: number;
   seats: number;
-  transmission: "Manual" | "Automático";
+  transmission: "Manual" | "Automático" | "Semiautomático";
   fuel: string;
   features: string[];
   photos: [CarPhoto, CarPhoto, CarPhoto];
@@ -232,10 +235,32 @@ const baseCars: Car[] = [
 // Whole fleet, cheapest first inside each tier listing.
 export const cars: Car[] = [...baseCars, ...extraCars, ...extraCars2].sort((a, b) => a.dailyPriceCents - b.dailyPriceCents);
 
+// Motorcycles, cheapest first. Same tiers as cars, with their own labels.
+export const motos: Car[] = [...motoList].sort((a, b) => a.dailyPriceCents - b.dailyPriceCents);
+
+export const motoTiers: { id: CarTier; label: string; description: string }[] = [
+  { id: "economico", label: "Urbanas", description: "Scooters e motos leves para o dia a dia." },
+  { id: "intermediario", label: "Médias e aventura", description: "Naked, trail e big trail para viajar." },
+  { id: "esportivo", label: "Esportivas e premium", description: "Superesportivas, custom e grandes viajantes." },
+];
+
+// Every vehicle the shop rents: reservations point at either kind by id.
+export const vehicles: Car[] = [...cars, ...motos];
+
+export function isMoto(vehicle: Car): boolean {
+  return vehicle.kind === "moto";
+}
+
 export function getCar(id: string): Car | undefined {
-  return cars.find((c) => c.id === id);
+  return vehicles.find((c) => c.id === id);
 }
 
 export function tierLabel(tier: CarTier): string {
   return tiers.find((t) => t.id === tier)?.label ?? tier;
+}
+
+/** Tier name in the right vocabulary for the vehicle ("Econômicos" for cars, "Urbanas" for motos). */
+export function tierLabelFor(vehicle: Car): string {
+  const list = isMoto(vehicle) ? motoTiers : tiers;
+  return list.find((t) => t.id === vehicle.tier)?.label ?? vehicle.tier;
 }

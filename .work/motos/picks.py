@@ -4,6 +4,6 @@ PICKS={
  "honda-cb-650r":[0,2,3],"kawasaki-ninja-400":[1,2,3],"honda-cb-500f":[0,4,6],"bmw-g-310-gs":[1,3,4],
  "yamaha-mt-07":[2,5,6],"honda-nc-750x":[3,4,1],"kawasaki-z650":[2,3,1],"triumph-tiger-900":[2,3,0],
  "yamaha-yzf-r1":[1,3,4],"kawasaki-ninja-zx-10r":[0,1,3],"honda-cbr-1000rr":[2,0,5],"ducati-panigale-v4":[6,2,7],
- "bmw-s-1000-rr":[3,4,6],"harley-davidson-fat-boy":[1,2,5],"bmw-r-1250-gs":[3,2,1],"kawasaki-z900":[0,6,1],
+ "bmw-s-1000-rr":[3,4,6],"harley-davidson-fat-boy":[1,2,5],"bmw-r-1250-gs":[3,2,1],"kawasaki-z900":[0,6,3],
  "triumph-street-triple":[3,4,7],"ducati-monster":[3,5,6],
 }

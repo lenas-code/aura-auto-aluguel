@@ -10,7 +10,7 @@ export function Logo() {
     <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Aura — página inicial">
       <AuraMark />
       <span className="min-w-0 leading-none">
-        <span className="block font-display text-2xl font-extrabold tracking-wide text-sunset">AURA</span>
+        <span className="inline-block font-display text-2xl font-extrabold tracking-wide text-gradient-sunset">AURA</span>
         <span className="mt-1 block truncate text-[0.62rem] uppercase tracking-[0.24em] text-night-muted">
           Aluguel rápido de automóveis
         </span>
