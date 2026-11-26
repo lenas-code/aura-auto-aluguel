@@ -2,6 +2,7 @@ import { toast } from "sonner";
 import { LovableMark } from "@lovable.dev/cloud-auth-js/react";
 import { Button } from "@/components/ui/button";
 import { lovable } from "@/integrations/lovable/index";
+import { supabase } from "@/integrations/supabase/client";
 import { rememberAfterLogin } from "@/hooks/use-auth";
 
 function GoogleLogo() {
@@ -18,12 +19,18 @@ function GoogleLogo() {
 export function SocialSignIn({ redirectTo }: { redirectTo?: string | undefined }) {
   const signIn = async (provider: "google" | "lovable") => {
     rememberAfterLogin(redirectTo ?? "/conta");
+    if (provider === "google") {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: window.location.origin },
+      });
+      if (error) toast.error("Não foi possível entrar com Google. Verifique a configuração OAuth e tente novamente.");
+      return;
+    }
     const result = await lovable.auth.signInWithOAuth(provider, {
       redirect_uri: window.location.origin,
     });
-    if (result.error) {
-      toast.error("Não foi possível entrar agora. Tente novamente.");
-    }
+    if (result.error) toast.error("Não foi possível entrar agora. Tente novamente.");
   };
 
   return (
