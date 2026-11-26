@@ -98,7 +98,14 @@ function PagamentoPage() {
       await queryClient.invalidateQueries({ queryKey: ["reservations", userId] });
       setDone({ id: data.id });
     },
-    onError: (error) => {\n      const message = error instanceof Error ? error.message : "";\n      if (message.includes("reservations_car_dates_no_overlap") || message.toLowerCase().includes("exclusion")) {\n        toast.error("Este veículo já está reservado para parte ou todo esse período. Escolha outro veículo ou datas.");\n      } else {\n        toast.error("Não foi possível registrar a reserva. Tente novamente.");\n      }\n    },
+    onError: (error) => {
+      const message = error instanceof Error ? error.message : "";
+      if (message.includes("reservations_car_dates_no_overlap") || message.toLowerCase().includes("exclusion")) {
+        toast.error("Este veículo já está reservado para parte ou todo esse período. Escolha outro veículo ou datas.");
+      } else {
+        toast.error("Não foi possível registrar a reserva. Tente novamente.");
+      }
+    },
   });
 
   if (!car) {
