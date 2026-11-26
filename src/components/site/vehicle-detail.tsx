@@ -28,7 +28,7 @@ function datesInPeriods(periods: ReservedPeriod[]) {
 function isBlockedRange(pickup: string, returnDate: string, periods: ReservedPeriod[]) {
   return periods.some((p) => pickup < p.return_date && returnDate > p.pickup_date);
 }
-function DatePicker({ label, value, min, blocked, onChange, allowReturnOnPickup = false }: {
+function DatePicker({ label, value, min, blocked, onChange }: {
   label: string; value: string; min?: string; blocked: Date[]; onChange: (value: string) => void; allowReturnOnPickup?: boolean;
 }) {
   const blockedMatcher = (date: Date) => {
