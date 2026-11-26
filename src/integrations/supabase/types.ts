@@ -94,7 +94,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_vehicle_availability: {
+        Args: { p_car_id: string }
+        Returns: { pickup_date: string; return_date: string }[]
+      }
     }
     Enums: {
       [_ in never]: never
