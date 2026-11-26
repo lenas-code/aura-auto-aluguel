@@ -1,32 +1,6 @@
-import mobi1 from "@/assets/fleet/mobi-1.jpg.asset.json";
-import mobi2 from "@/assets/fleet/mobi-2.jpg.asset.json";
-import mobi3 from "@/assets/fleet/mobi-3.jpg.asset.json";
-import kwid1 from "@/assets/fleet/kwid-1.jpg.asset.json";
-import kwid2 from "@/assets/fleet/kwid-2.jpg.asset.json";
-import kwid3 from "@/assets/fleet/kwid-3.jpg.asset.json";
-import onix1 from "@/assets/fleet/onix-1.jpg.asset.json";
-import onix2 from "@/assets/fleet/onix-2.jpg.asset.json";
-import onix3 from "@/assets/fleet/onix-3.jpg.asset.json";
-import tcross1 from "@/assets/fleet/tcross-1.jpg.asset.json";
-import tcross2 from "@/assets/fleet/tcross-2.jpg.asset.json";
-import tcross3 from "@/assets/fleet/tcross-3.jpg.asset.json";
-import corolla1 from "@/assets/fleet/corolla-1.jpg.asset.json";
-import corolla2 from "@/assets/fleet/corolla-2.jpg.asset.json";
-import corolla3 from "@/assets/fleet/corolla-3.jpg.asset.json";
-import compass1 from "@/assets/fleet/compass-1.jpg.asset.json";
-import compass2 from "@/assets/fleet/compass-2.jpg.asset.json";
-import compass3 from "@/assets/fleet/compass-3.jpg.asset.json";
-import camaro1 from "@/assets/fleet/camaro-1.jpg.asset.json";
-import camaro2 from "@/assets/fleet/camaro-2.jpg.asset.json";
-import camaro3 from "@/assets/fleet/camaro-3.jpg.asset.json";
-import mustang1 from "@/assets/fleet/mustang-1.jpg.asset.json";
-import mustang2 from "@/assets/fleet/mustang-2.jpg.asset.json";
-import mustang3 from "@/assets/fleet/mustang-3.jpg.asset.json";
-import porsche1 from "@/assets/fleet/porsche-1.jpg.asset.json";
-import porsche2 from "@/assets/fleet/porsche-2.jpg.asset.json";
-import porsche3 from "@/assets/fleet/porsche-3.jpg.asset.json";
 
 import { extraCars } from "./cars-extra";
+import { photoFromCommons } from "@/lib/commons-image";
 import { extraCars2 } from "./cars-extra2";
 import { motos as motoList } from "./motos";
 
@@ -73,9 +47,9 @@ const baseCars: Car[] = [
     fuel: "Flex",
     features: ["Ar-condicionado", "Direção elétrica", "Central multimídia", "Rack de teto"],
     photos: [
-      { src: mobi1.url, alt: "Fiat Mobi vermelho, vista de frente", credit: { author: "NaBUru38", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_Trekking_1.0_2021_in_Montevideo_(front).jpg" } },
-      { src: mobi2.url, alt: "Fiat Mobi vermelho, vista de trás", credit: { author: "NaBUru38", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_Trekking_1.0_2021_in_Montevideo_(back).jpg" } },
-      { src: mobi3.url, alt: "Fiat Mobi vermelho, outro ângulo", credit: { author: "RL GNZLZ", license: "CC BY-SA 2.0", url: "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_1.0_Like_2021.jpg" } },
+      photoFromCommons("Fiat Mobi vermelho, vista de frente", "NaBUru38", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_Trekking_1.0_2021_in_Montevideo_(front).jpg"),
+      photoFromCommons("Fiat Mobi vermelho, vista de trás", "NaBUru38", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_Trekking_1.0_2021_in_Montevideo_(back).jpg"),
+      photoFromCommons("Fiat Mobi vermelho, outro ângulo", "RL GNZLZ", "CC BY-SA 2.0", "https://commons.wikimedia.org/wiki/File:Fiat_Mobi_1.0_Like_2021.jpg"),
     ],
   },
   {
@@ -92,9 +66,9 @@ const baseCars: Car[] = [
     fuel: "Flex",
     features: ["Ar-condicionado", "Altura elevada do solo", "Central multimídia", "Câmera de ré"],
     photos: [
-      { src: kwid1.url, alt: "Renault Kwid, vista de frente", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2023_Renault_Kwid_Iconic_(Colombia)_front_view_02.png" } },
-      { src: kwid2.url, alt: "Renault Kwid, vista de trás", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2023_Renault_Kwid_Iconic_(Colombia)_rear_view.png" } },
-      { src: kwid3.url, alt: "Renault Kwid, outro ângulo", credit: { author: "BugWarp", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Empalme_San_Carlos_Wikimania_2022-_BugWarp_29.jpg" } },
+      photoFromCommons("Renault Kwid, vista de frente", "Autosdeprimera", "CC BY 3.0", "https://commons.wikimedia.org/wiki/File:2023_Renault_Kwid_Iconic_(Colombia)_front_view_02.png"),
+      photoFromCommons("Renault Kwid, vista de trás", "Autosdeprimera", "CC BY 3.0", "https://commons.wikimedia.org/wiki/File:2023_Renault_Kwid_Iconic_(Colombia)_rear_view.png"),
+      photoFromCommons("Renault Kwid, outro ângulo", "BugWarp", "CC BY 4.0", "https://commons.wikimedia.org/wiki/File:Empalme_San_Carlos_Wikimania_2022-_BugWarp_29.jpg"),
     ],
   },
   {
@@ -111,9 +85,9 @@ const baseCars: Car[] = [
     fuel: "Flex",
     features: ["Motor 1.0 turbo", "Porta-malas de 470 litros", "Wi-Fi a bordo", "Ar-condicionado"],
     photos: [
-      { src: onix1.url, alt: "Chevrolet Onix Plus, vista de frente", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2021_Chevrolet_Onix_Sedan_1.0_Premier_Turbo_(Colombia)_front_view.png" } },
-      { src: onix2.url, alt: "Chevrolet Onix Plus, vista de trás", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2021_Chevrolet_Onix_Sedan_1.0_Premier_Turbo_(Colombia)_rear_view.png" } },
-      { src: onix3.url, alt: "Chevrolet Onix Plus, outro ângulo", credit: { author: "Jengtingchen", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Chevrolet_Onix_010.jpg" } },
+      photoFromCommons("Chevrolet Onix Plus, vista de frente", "Autosdeprimera", "CC BY 3.0", "https://commons.wikimedia.org/wiki/File:2021_Chevrolet_Onix_Sedan_1.0_Premier_Turbo_(Colombia)_front_view.png"),
+      photoFromCommons("Chevrolet Onix Plus, vista de trás", "Autosdeprimera", "CC BY 3.0", "https://commons.wikimedia.org/wiki/File:2021_Chevrolet_Onix_Sedan_1.0_Premier_Turbo_(Colombia)_rear_view.png"),
+      photoFromCommons("Chevrolet Onix Plus, outro ângulo", "Jengtingchen", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Chevrolet_Onix_010.jpg"),
     ],
   },
   {
@@ -130,9 +104,9 @@ const baseCars: Car[] = [
     fuel: "Flex",
     features: ["Motor 200 TSI turbo", "Painel digital", "Piloto automático", "Sensor de estacionamento"],
     photos: [
-      { src: tcross1.url, alt: "Volkswagen T-Cross branco, vista de frente", credit: { author: "Calreyn88", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_TDi.jpg" } },
-      { src: tcross2.url, alt: "Volkswagen T-Cross branco, vista de trás", credit: { author: "Calreyn88", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_TDi_4.jpg" } },
-      { src: tcross3.url, alt: "Interior do Volkswagen T-Cross", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Interior.jpg" } },
+      photoFromCommons("Volkswagen T-Cross branco, vista de frente", "Calreyn88", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_TDi.jpg"),
+      photoFromCommons("Volkswagen T-Cross branco, vista de trás", "Calreyn88", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_TDi_4.jpg"),
+      photoFromCommons("Interior do Volkswagen T-Cross", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Interior.jpg"),
     ],
   },
   {
@@ -149,9 +123,9 @@ const baseCars: Car[] = [
     fuel: "Flex",
     features: ["Motor 2.0", "Bancos em couro", "Controle de cruzeiro adaptativo", "Ar digital"],
     photos: [
-      { src: corolla1.url, alt: "Toyota Corolla prata, vista de frente", credit: { author: "LuvsMG481", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Altis_petrol_version_front.jpg" } },
-      { src: corolla2.url, alt: "Toyota Corolla prata, vista de trás", credit: { author: "LuvsMG481", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Altis_petrol_version_rear.jpg" } },
-      { src: corolla3.url, alt: "Toyota Corolla prata, outro ângulo", credit: { author: "Autosdeprimera", license: "CC BY 3.0", url: "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Hybrid_SEG_(Colombia)_front_view.png" } },
+      photoFromCommons("Toyota Corolla prata, vista de frente", "LuvsMG481", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Altis_petrol_version_front.jpg"),
+      photoFromCommons("Toyota Corolla prata, vista de trás", "LuvsMG481", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Altis_petrol_version_rear.jpg"),
+      photoFromCommons("Toyota Corolla prata, outro ângulo", "Autosdeprimera", "CC BY 3.0", "https://commons.wikimedia.org/wiki/File:2020_Toyota_Corolla_Hybrid_SEG_(Colombia)_front_view.png"),
     ],
   },
   {
@@ -168,9 +142,9 @@ const baseCars: Car[] = [
     fuel: "Flex",
     features: ["Motor 1.3 turbo", "Teto solar", "Central multimídia de 10 polegadas", "Assistente de faixa"],
     photos: [
-      { src: compass1.url, alt: "Jeep Compass prata, vista de frente", credit: { author: "Alexander Migl", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Jeep_Compass_(MP)_PHEV_Facelift_1X7A0140.jpg" } },
-      { src: compass2.url, alt: "Jeep Compass prata, vista de trás", credit: { author: "Alexander Migl", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Jeep_Compass_(MP)_PHEV_Facelift_1X7A0139.jpg" } },
-      { src: compass3.url, alt: "Interior do Jeep Compass", credit: { author: "deathpallie325", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2022_Jeep_Compass_interior.jpg" } },
+      photoFromCommons("Jeep Compass prata, vista de frente", "Alexander Migl", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Jeep_Compass_(MP)_PHEV_Facelift_1X7A0140.jpg"),
+      photoFromCommons("Jeep Compass prata, vista de trás", "Alexander Migl", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Jeep_Compass_(MP)_PHEV_Facelift_1X7A0139.jpg"),
+      photoFromCommons("Interior do Jeep Compass", "deathpallie325", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2022_Jeep_Compass_interior.jpg"),
     ],
   },
   {
@@ -187,9 +161,9 @@ const baseCars: Car[] = [
     fuel: "Gasolina",
     features: ["Motor 6.2 V8 de 461 cv", "Escapamento esportivo", "Bancos esportivos", "Head-up display"],
     photos: [
-      { src: camaro1.url, alt: "Chevrolet Camaro SS prata, vista de frente", credit: { author: "Kevauto", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS,_front_11.9.19.jpg" } },
-      { src: camaro2.url, alt: "Chevrolet Camaro SS prata, vista de trás", credit: { author: "Kevauto", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS,_rear_11.9.19.jpg" } },
-      { src: camaro3.url, alt: "Chevrolet Camaro SS prata, outro ângulo", credit: { author: "Kevauto", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS_6.2L_front_3.16.19.jpg" } },
+      photoFromCommons("Chevrolet Camaro SS prata, vista de frente", "Kevauto", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS,_front_11.9.19.jpg"),
+      photoFromCommons("Chevrolet Camaro SS prata, vista de trás", "Kevauto", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS,_rear_11.9.19.jpg"),
+      photoFromCommons("Chevrolet Camaro SS prata, outro ângulo", "Kevauto", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Chevrolet_Camaro_2SS_6.2L_front_3.16.19.jpg"),
     ],
   },
   {
@@ -206,9 +180,9 @@ const baseCars: Car[] = [
     fuel: "Gasolina",
     features: ["Motor 5.0 V8 de 483 cv", "Painel digital configurável", "Modos de condução", "Bancos com ventilação"],
     photos: [
-      { src: mustang1.url, alt: "Ford Mustang GT azul, vista de frente", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift.jpg" } },
-      { src: mustang2.url, alt: "Ford Mustang GT azul, vista de trás", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift_Rear_(1).jpg" } },
-      { src: mustang3.url, alt: "Interior do Ford Mustang GT", credit: { author: "Vauxford", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift_Interior.jpg" } },
+      photoFromCommons("Ford Mustang GT azul, vista de frente", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift.jpg"),
+      photoFromCommons("Ford Mustang GT azul, vista de trás", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift_Rear_(1).jpg"),
+      photoFromCommons("Interior do Ford Mustang GT", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2018_Ford_Mustang_GT_V8_5.0_facelift_Interior.jpg"),
     ],
   },
   {
@@ -225,9 +199,9 @@ const baseCars: Car[] = [
     fuel: "Gasolina",
     features: ["Motor boxer 3.0 biturbo", "Câmbio PDK de 8 marchas", "Escapamento esportivo", "Modo Sport Chrono"],
     photos: [
-      { src: porsche1.url, alt: "Porsche 911 Carrera azul, vista de frente", credit: { author: "Calreyn88", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:2022_Porsche_911_992_Carrera_GTS.jpg" } },
-      { src: porsche2.url, alt: "Porsche 911 Carrera azul, vista de trás", credit: { author: "Dinkun Chen", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:PORSCHE_911_(992)_China_(12).jpg" } },
-      { src: porsche3.url, alt: "Porsche 911 Carrera azul, outro ângulo", credit: { author: "Dinkun Chen", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:PORSCHE_911_(992)_China_(13).jpg" } },
+      photoFromCommons("Porsche 911 Carrera azul, vista de frente", "Calreyn88", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2022_Porsche_911_992_Carrera_GTS.jpg"),
+      photoFromCommons("Porsche 911 Carrera azul, vista de trás", "Dinkun Chen", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:PORSCHE_911_(992)_China_(12).jpg"),
+      photoFromCommons("Porsche 911 Carrera azul, outro ângulo", "Dinkun Chen", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:PORSCHE_911_(992)_China_(13).jpg"),
     ],
   },
 ];
