@@ -39,7 +39,7 @@ function DatePicker({ label, value, min, blocked, onChange }: {
     <Label>{label}</Label>
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline" className="w-full justify-start text-left font-normal" disabled={!min && label === "Devolução"}>
+        <Button variant="outline" className="h-11 w-full min-w-0 justify-start gap-2 overflow-hidden text-left font-normal" disabled={!min && label === "Devolução"}>
           <CalendarDays className="mr-2 size-4" />{value ? formatDateBR(value) : "Selecione uma data"}
         </Button>
       </PopoverTrigger>
@@ -79,22 +79,22 @@ export function VehicleDetail({ car }: { car: Car }) {
   const canBook = Boolean(check?.ok && !dateConflict && !availabilityLoading);
   const pickupBlocked = blockedDates;
   const returnBlocked = blockedDates.filter((date) => !periods.some((p) => isoFromDate(date) === p.pickup_date && pickup && pickup < p.pickup_date));
-  return <div className="mx-auto max-w-6xl px-4 py-10">
+  return <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:py-10">
     <nav className="text-sm text-muted-foreground">{isMoto(car) ? <Link to="/motos" className="hover:text-primary">Motos</Link> : <Link to="/frota" className="hover:text-primary">Carros</Link>} <span className="mx-1">/</span> {car.name}</nav>
-    <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-      <div><div className="neon-edge overflow-hidden rounded-2xl"><img src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full object-cover" /></div>
+    <div className="mt-5 grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,1fr)] lg:gap-8">
+      <div className="min-w-0"><div className="neon-edge overflow-hidden rounded-2xl"><img src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full object-cover" /></div>
         <div className="mt-4 grid grid-cols-3 gap-3">{car.photos.map((p, i) => <button key={p.src} type="button" onClick={() => setActive(i)} aria-label={`Ver foto ${i + 1} de 3`} aria-pressed={active === i} className={`overflow-hidden rounded-xl border-2 transition ${active === i ? "border-primary ring-2 ring-primary/30" : "border-transparent opacity-75 hover:opacity-100"}`}><img src={p.src} alt="" className="aspect-[4/3] w-full object-cover" /></button>)}</div>
         <p className="mt-3 text-xs text-muted-foreground">Foto: <a href={photo.credit.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-primary">{photo.credit.author}</a> ({photo.credit.license}), via Wikimedia Commons</p>
       </div>
-      <div className="space-y-6"><div><p className="ornament">{tierLabelFor(car)} · {car.category}</p><h1 className="mt-3 text-3xl font-bold leading-tight md:text-4xl">{car.name}</h1><p className="mt-3 text-lg text-muted-foreground">{car.description}</p></div>
+      <div className="min-w-0 space-y-5"><div><p className="ornament">{tierLabelFor(car)} · {car.category}</p><h1 className="mt-2 break-words text-3xl font-bold leading-tight md:text-4xl">{car.name}</h1><p className="mt-2 text-base leading-relaxed text-muted-foreground">{car.description}</p></div>
         <div className="flex flex-wrap gap-2"><span className="inline-flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-sm"><Users className="size-4" /> {car.seats} lugares</span><span className="inline-flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-sm"><Cog className="size-4" /> {car.transmission}</span><span className="inline-flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-sm"><Fuel className="size-4" /> {car.fuel}</span></div>
         <ul className="grid grid-cols-2 gap-2 text-sm">{car.features.map((f) => <li key={f} className="flex items-center gap-2"><Check className="size-4 text-aqua" /> {f}</li>)}</ul>
-        <div className="neon-edge rounded-2xl bg-card p-6"><p><span className="font-display text-3xl font-bold text-primary">{formatBRL(car.dailyPriceCents)}</span><span className="text-muted-foreground"> por dia</span></p>
-          <div className="mt-4 grid grid-cols-2 gap-3"><DatePicker label="Retirada" value={pickup} min={today} blocked={pickupBlocked} onChange={(v) => { setPickup(v); if (returnDate && returnDate <= v) setReturnDate(""); }} /><DatePicker label="Devolução" value={returnDate} min={pickup || today} blocked={returnBlocked} onChange={setReturnDate} /></div>
-          <div className="mt-3 flex items-center gap-2 text-xs text-muted-foreground"><span className="inline-block size-3 rounded-sm bg-destructive/20 line-through" /> Dias já reservados aparecem riscados.</div>
+        <div className="neon-edge min-w-0 rounded-2xl bg-card p-4 sm:p-5"><p><span className="font-display text-3xl font-bold text-primary">{formatBRL(car.dailyPriceCents)}</span><span className="text-muted-foreground"> por dia</span></p>
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2"><DatePicker label="Retirada" value={pickup} min={today} blocked={pickupBlocked} onChange={(v) => { setPickup(v); if (returnDate && returnDate <= v) setReturnDate(""); }} /><DatePicker label="Devolução" value={returnDate} min={pickup || today} blocked={returnBlocked} onChange={setReturnDate} /></div>
+          <div className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-muted-foreground"><span className="inline-block size-3 rounded-sm bg-destructive/20 line-through" /> Dias já reservados aparecem riscados.</div>
           {availabilityLoading ? <p className="mt-3 text-sm text-muted-foreground">Consultando disponibilidade…</p> : null}
           {check && pickup && returnDate ? (check.ok && !dateConflict ? <p className="mt-3 text-sm">{check.days} {check.days === 1 ? "diária" : "diárias"} · total <strong className="text-primary">{formatBRL(check.totalCents)}</strong></p> : <p className="mt-3 text-sm text-destructive">{dateConflict ? "Esse período contém dias já reservados. Escolha outras datas." : check.reason}</p>) : null}
-          {canBook ? <Button asChild size="lg" className="mt-4 h-12 w-full text-base"><Link to="/pagamento" search={{ carro: car.id, retirada: pickup, devolucao: returnDate }}>Reservar e ir para o pagamento</Link></Button> : <Button size="lg" className="mt-4 h-12 w-full text-base" disabled>Escolha datas disponíveis para reservar</Button>}
+          {canBook ? <Button asChild size="lg" className="mt-4 h-12 w-full whitespace-normal text-base"><Link to="/pagamento" search={{ carro: car.id, retirada: pickup, devolucao: returnDate }}>Reservar e ir para o pagamento</Link></Button> : <Button size="lg" className="mt-4 h-12 w-full text-base" disabled>Escolha datas disponíveis para reservar</Button>}
         </div>
       </div>
     </div>
