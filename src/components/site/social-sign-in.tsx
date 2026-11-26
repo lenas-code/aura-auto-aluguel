@@ -1,7 +1,5 @@
 import { toast } from "sonner";
-import { LovableMark } from "@lovable.dev/cloud-auth-js/react";
 import { Button } from "@/components/ui/button";
-import { lovable } from "@/integrations/lovable/index";
 import { supabase } from "@/integrations/supabase/client";
 import { rememberAfterLogin } from "@/hooks/use-auth";
 
@@ -17,20 +15,13 @@ function GoogleLogo() {
 }
 
 export function SocialSignIn({ redirectTo }: { redirectTo?: string | undefined }) {
-  const signIn = async (provider: "google" | "lovable") => {
+  const signInWithGoogle = async () => {
     rememberAfterLogin(redirectTo ?? "/conta");
-    if (provider === "google") {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: { redirectTo: window.location.origin },
-      });
-      if (error) toast.error("Não foi possível entrar com Google. Verifique a configuração OAuth e tente novamente.");
-      return;
-    }
-    const result = await lovable.auth.signInWithOAuth(provider, {
-      redirect_uri: window.location.origin,
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: window.location.origin },
     });
-    if (result.error) toast.error("Não foi possível entrar agora. Tente novamente.");
+    if (error) toast.error("Não foi possível entrar com Google. Verifique a configuração OAuth e tente novamente.");
   };
 
   return (
@@ -38,15 +29,11 @@ export function SocialSignIn({ redirectTo }: { redirectTo?: string | undefined }
       <Button
         type="button"
         variant="outline"
-        onClick={() => void signIn("google")}
+        onClick={() => void signInWithGoogle()}
         className="h-10 border-[#747775] bg-[#FFFFFF] text-[#1F1F1F] hover:bg-[#FFFFFF]/90 hover:text-[#1F1F1F]"
       >
         <GoogleLogo />
         Continuar com Google
-      </Button>
-      <Button type="button" variant="outline" className="h-10" onClick={() => void signIn("lovable")}>
-        <LovableMark />
-        Continuar com Lovable
       </Button>
     </div>
   );
