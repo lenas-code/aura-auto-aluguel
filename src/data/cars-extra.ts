@@ -1,10 +1,9 @@
 // Extra fleet: real models with free-licensed Wikimedia Commons photos (credits required by the licenses).
 import type { Car, CarPhoto } from "./cars";
-
-const fleetPhotos = import.meta.glob<{ url: string }>("../assets/fleet/*.asset.json", { eager: true, import: "default" });
+import { commonsFileUrl } from "@/lib/commons-image";
 
 function photo(file: string, alt: string, author: string, license: string, url: string): CarPhoto {
-  const src = fleetPhotos[`../assets/fleet/${file}.jpg.asset.json`]?.url ?? "";
+  const src = commonsFileUrl(url);
   return { src, alt, credit: { author, license, url } };
 }
 
