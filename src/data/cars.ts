@@ -104,9 +104,9 @@ const baseCars: Car[] = [
     fuel: "Flex",
     features: ["Motor 200 TSI turbo", "Painel digital", "Piloto automático", "Sensor de estacionamento"],
     photos: [
-      photoFromCommons("Volkswagen T-Cross, vista frontal", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Front.jpg"),
-      photoFromCommons("Volkswagen T-Cross, vista traseira", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Rear.jpg"),
-      photoFromCommons("Interior do Volkswagen T-Cross", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Interior.jpg"),
+      photoFromCommons("Volkswagen T-Cross 2019, vista frontal", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Front.jpg"),
+      photoFromCommons("Volkswagen T-Cross 2019, vista traseira", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Rear.jpg"),
+      photoFromCommons("Volkswagen T-Cross 2019, interior", "Vauxford", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:2019_Volkswagen_T-Cross_R-Line_1.0_Interior.jpg"),
     ],
   },
   {
