@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Check, Cog, Fuel, Users, CalendarDays } from "lucide-react";
+import { Check, Cog, Fuel, Users, CalendarDays, Car as CarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
@@ -59,7 +59,7 @@ export function VehicleNotFound({ moto = false }: { moto?: boolean }) {
 }
 
 export function VehicleDetail({ car }: { car: Car }) {
-  const [active, setActive] = useState(0); const [pickup, setPickup] = useState(""); const [returnDate, setReturnDate] = useState(""); const [today, setToday] = useState("");
+  const [active, setActive] = useState(0); const [mainImageFailed, setMainImageFailed] = useState(false); const [pickup, setPickup] = useState(""); const [returnDate, setReturnDate] = useState(""); const [today, setToday] = useState("");
   const [periods, setPeriods] = useState<ReservedPeriod[]>([]); const [availabilityLoading, setAvailabilityLoading] = useState(true);
   useEffect(() => setToday(todayIso()), []);
   useEffect(() => {
@@ -73,7 +73,7 @@ export function VehicleDetail({ car }: { car: Car }) {
     return () => { active = false; };
   }, [car.id]);
   const blockedDates = useMemo(() => datesInPeriods(periods), [periods]);
-  const photo = car.photos[active] ?? car.photos[0];
+  const photo = car.photos[active] ?? car.photos[0];\n  useEffect(() => setMainImageFailed(false), [active, car.id]);
   const check = today ? checkRental(pickup, returnDate, car.dailyPriceCents, today) : null;
   const dateConflict = pickup && returnDate ? isBlockedRange(pickup, returnDate, periods) : false;
   const canBook = Boolean(check?.ok && !dateConflict && !availabilityLoading);
@@ -82,8 +82,8 @@ export function VehicleDetail({ car }: { car: Car }) {
   return <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:py-10">
     <nav className="text-sm text-muted-foreground">{isMoto(car) ? <Link to="/motos" className="hover:text-primary">Motos</Link> : <Link to="/frota" className="hover:text-primary">Carros</Link>} <span className="mx-1">/</span> {car.name}</nav>
     <div className="mt-5 grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,1fr)] lg:gap-8">
-      <div className="min-w-0"><div className="neon-edge overflow-hidden rounded-2xl"><img src={photo.src} alt={photo.alt} className="aspect-[4/3] w-full object-cover" /></div>
-        <div className="mt-4 grid grid-cols-3 gap-3">{car.photos.map((p, i) => <button key={p.src} type="button" onClick={() => setActive(i)} aria-label={`Ver foto ${i + 1} de 3`} aria-pressed={active === i} className={`overflow-hidden rounded-xl border-2 transition ${active === i ? "border-primary ring-2 ring-primary/30" : "border-transparent opacity-75 hover:opacity-100"}`}><img src={p.src} alt="" className="aspect-[4/3] w-full object-cover" /></button>)}</div>
+      <div className="min-w-0"><div className="neon-edge overflow-hidden rounded-2xl">{mainImageFailed ? <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 bg-card text-muted-foreground" role="img" aria-label={car.name}><CarIcon className="size-16 opacity-60" /><span className="text-center text-sm">{car.name}</span></div> : <img src={photo.src} alt={photo.alt} onError={() => setMainImageFailed(true)} className="aspect-[4/3] w-full object-cover" />}</div>
+        <div className="mt-4 grid grid-cols-3 gap-3">{car.photos.map((p, i) => <button key={p.src} type="button" onClick={() => setActive(i)} aria-label={`Ver foto ${i + 1} de 3`} aria-pressed={active === i} className={`overflow-hidden rounded-xl border-2 transition ${active === i ? "border-primary ring-2 ring-primary/30" : "border-transparent opacity-75 hover:opacity-100"}`}><img src={p.src} alt="" onError={(e) => { e.currentTarget.style.visibility = "hidden"; }} className="aspect-[4/3] w-full object-cover" /></button>)}</div>
         <p className="mt-3 text-xs text-muted-foreground">Foto: <a href={photo.credit.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-primary">{photo.credit.author}</a> ({photo.credit.license}), via Wikimedia Commons</p>
       </div>
       <div className="min-w-0 space-y-5"><div><p className="ornament">{tierLabelFor(car)} · {car.category}</p><h1 className="mt-2 break-words text-3xl font-bold leading-tight md:text-4xl">{car.name}</h1><p className="mt-2 text-base leading-relaxed text-muted-foreground">{car.description}</p></div>
