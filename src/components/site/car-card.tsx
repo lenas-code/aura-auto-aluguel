@@ -1,22 +1,32 @@
 import { Link } from "@tanstack/react-router";
-import { Users, Fuel, Cog } from "lucide-react";
+import { Users, Fuel, Cog, Car as CarIcon } from "lucide-react";
+import { useState } from "react";
 import type { ReactNode } from "react";
 import { isMoto, tierLabelFor, type Car } from "@/data/cars";
 import { formatBRL } from "@/lib/pricing";
 
 export function CarCard({ car }: { car: Car }) {
+  const [imageFailed, setImageFailed] = useState(false);
   return (
     <CardLink
       car={car}
       className="neon-edge group flex flex-col overflow-hidden rounded-2xl bg-card transition-all hover:-translate-y-1 hover:shadow-neon"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={car.photos[0].src}
-          alt={car.photos[0].alt}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        {imageFailed ? (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-muted text-muted-foreground" role="img" aria-label={car.name}>
+            <CarIcon className="size-12 opacity-60" />
+            <span className="px-3 text-center text-sm font-medium">{car.name}</span>
+          </div>
+        ) : (
+          <img
+            src={car.photos[0].src}
+            alt={car.photos[0].alt}
+            loading="lazy"
+            onError={() => setImageFailed(true)}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
         <span className="absolute left-3 top-3 rounded-full bg-night/80 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-aqua backdrop-blur-sm">
           {tierLabelFor(car)}
         </span>
