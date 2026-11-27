@@ -73,7 +73,8 @@ export function VehicleDetail({ car }: { car: Car }) {
     return () => { active = false; };
   }, [car.id]);
   const blockedDates = useMemo(() => datesInPeriods(periods), [periods]);
-  const photo = car.photos[active] ?? car.photos[0];\n  useEffect(() => setMainImageFailed(false), [active, car.id]);
+  const photo = car.photos[active] ?? car.photos[0];
+  useEffect(() => setMainImageFailed(false), [active, car.id]);
   const check = today ? checkRental(pickup, returnDate, car.dailyPriceCents, today) : null;
   const dateConflict = pickup && returnDate ? isBlockedRange(pickup, returnDate, periods) : false;
   const canBook = Boolean(check?.ok && !dateConflict && !availabilityLoading);
