@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeartHandshake, ShieldCheck, Timer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageBanner } from "@/components/site/page-banner";
-import tcrossRear from "@/assets/fleet/tcross-2.jpg.asset.json";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -31,30 +30,17 @@ function SobrePage() {
         A Aura nasceu para quem quer um carro ou uma moto rápido, sem papelada demais e com muito estilo.
       </PageBanner>
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-2">
-        <img src={tcrossRear.url} alt="Volkswagen T-Cross branco numa estrada de serra" className="neon-edge rounded-3xl" />
+        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=85" alt="SUV em estrada, representando a frota Aura" loading="lazy" className="neon-edge aspect-[4/3] w-full rounded-3xl object-cover" />
         <div className="space-y-4 text-lg text-muted-foreground">
           <h2 className="text-3xl font-bold text-foreground">Para cada rolê, um veículo</h2>
-          <p>
-            Montamos uma frota para cada bolso e cada ocasião: econômicos para a cidade, SUVs e sedãs para viajar
-            com a família, esportivos para os dias especiais e motos, da scooter à superesportiva.
-          </p>
-          <p>
-            Nosso jeito é simples: você escolhe o carro ou a moto, faz seu cadastro uma vez e reserva quando precisar.
-          </p>
-          <Button asChild size="lg" className="rounded-full">
-            <Link to="/frota">Conhecer a frota</Link>
-          </Button>
+          <p>Montamos uma frota para cada bolso e cada ocasião: econômicos para a cidade, SUVs e sedãs para viajar com a família, esportivos para os dias especiais e motos, da scooter à superesportiva.</p>
+          <p>Nosso jeito é simples: você escolhe o carro ou a moto, faz seu cadastro uma vez e reserva quando precisar.</p>
+          <Button asChild size="lg" className="rounded-full"><Link to="/frota">Conhecer a frota</Link></Button>
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-4">
         <div className="grid gap-6 md:grid-cols-3">
-          {values.map((v) => (
-            <div key={v.title} className="neon-edge rounded-2xl bg-card p-8">
-              <v.icon className="size-9 text-aqua" />
-              <h3 className="mt-4 text-xl font-semibold">{v.title}</h3>
-              <p className="mt-2 text-muted-foreground">{v.text}</p>
-            </div>
-          ))}
+          {values.map((v) => <div key={v.title} className="neon-edge rounded-2xl bg-card p-8"><v.icon className="size-9 text-aqua" /><h3 className="mt-4 text-xl font-semibold">{v.title}</h3><p className="mt-2 text-muted-foreground">{v.text}</p></div>)}
         </div>
       </section>
     </>
